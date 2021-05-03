@@ -1,0 +1,6 @@
+framework module Pods_ChatX {
+  umbrella header "Pods-ChatX-umbrella.h"
+
+  export *
+  module * { export * }
+}

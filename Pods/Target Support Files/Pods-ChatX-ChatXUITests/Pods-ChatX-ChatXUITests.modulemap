@@ -1,0 +1,6 @@
+framework module Pods_ChatX_ChatXUITests {
+  umbrella header "Pods-ChatX-ChatXUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
