@@ -39,10 +39,11 @@ class LoginViewController: UIViewController, ViewType {
     private let passwordTextField = CredInputTextField(placeHolder: "Password")
     private let loginButton = LoginButton(title: "Login", color:#colorLiteral(red: 0.2427886426, green: 0.4366536736, blue: 0.7726411223, alpha: 1))
     
+    private lazy var emailContainer = InputContainerView(image: #imageLiteral(resourceName: "mail"), textField: emailTextField)
+    private lazy var passwordContainer = InputContainerView(image: #imageLiteral(resourceName: "lock"), textField: passwordTextField)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.view.backgroundColor = .white
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -53,8 +54,17 @@ class LoginViewController: UIViewController, ViewType {
     
     // MARK: - Initial UI Setup
     func setupUI() {
+        self.setupDetailAttributesOfUI()
         self.setupAppLogoImageView()
         self.setupAuthStackView()
+        self.setupTapGesture()
+    }
+
+    private func setupDetailAttributesOfUI() {
+        emailTextField.keyboardType = .emailAddress
+        passwordTextField.isSecureTextEntry = true
+        navigationController?.navigationBar.isHidden = true
+        navigationController?.navigationBar.barStyle = .default
     }
     
     private func setupAppLogoImageView() {
@@ -68,12 +78,12 @@ class LoginViewController: UIViewController, ViewType {
     }
     
     private func setupAuthStackView() {
-        let stackView = UIStackView(arrangedSubviews: [emailTextField, passwordTextField, loginButton])
+        let stackView = UIStackView(arrangedSubviews: [emailContainer, passwordContainer, loginButton])
         view.addSubview(stackView)
         stackView.axis = .vertical
         stackView.spacing = 10
         
-        [emailTextField, passwordTextField, loginButton].forEach({
+        [emailContainer, passwordContainer, loginButton].forEach({
             $0.snp.makeConstraints {
                 $0.height.equalTo(50)
             }
@@ -81,8 +91,12 @@ class LoginViewController: UIViewController, ViewType {
         
         stackView.snp.makeConstraints {
             $0.top.equalTo(appLogoImageView.snp.bottom).offset(50)
-            $0.trailing.leading.equalToSuperview().offset(50)
+            $0.leading.trailing.equalToSuperview().inset(50)
         }
+    }
+    
+    private func setupTapGesture() {
+        view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
     }
     
     // MARK: - Binding

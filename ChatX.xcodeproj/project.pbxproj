@@ -10,6 +10,7 @@
 		2D7E16AE99ED42C0DA390DA8 /* Pods_ChatX_ChatXUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B1B6EC8657179A1FD7F2EF9 /* Pods_ChatX_ChatXUITests.framework */; };
 		4B0C484C26400A33002BD081 /* CredInputTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0C484B26400A33002BD081 /* CredInputTextField.swift */; };
 		4B0C484E26400C88002BD081 /* LoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0C484D26400C88002BD081 /* LoginButton.swift */; };
+		4B0C48502640240B002BD081 /* InputContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0C484F2640240B002BD081 /* InputContainerView.swift */; };
 		4BFD0983263FB004004D43E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFD0982263FB004004D43E2 /* AppDelegate.swift */; };
 		4BFD0985263FB004004D43E2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFD0984263FB004004D43E2 /* SceneDelegate.swift */; };
 		4BFD0987263FB004004D43E2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFD0986263FB004004D43E2 /* LoginViewController.swift */; };
@@ -56,6 +57,7 @@
 		27094E691C6A2E4B47BDF0D0 /* Pods_ChatXTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChatXTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B0C484B26400A33002BD081 /* CredInputTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredInputTextField.swift; sourceTree = "<group>"; };
 		4B0C484D26400C88002BD081 /* LoginButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginButton.swift; sourceTree = "<group>"; };
+		4B0C484F2640240B002BD081 /* InputContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputContainerView.swift; sourceTree = "<group>"; };
 		4B1A498DAEF82B5E0A9E4EE2 /* Pods-ChatX.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatX.release.xcconfig"; path = "Target Support Files/Pods-ChatX/Pods-ChatX.release.xcconfig"; sourceTree = "<group>"; };
 		4BFD097F263FB004004D43E2 /* ChatX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BFD0982263FB004004D43E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 			children = (
 				4B0C484B26400A33002BD081 /* CredInputTextField.swift */,
 				4B0C484D26400C88002BD081 /* LoginButton.swift */,
+				4B0C484F2640240B002BD081 /* InputContainerView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -527,6 +530,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4BFD0987263FB004004D43E2 /* LoginViewController.swift in Sources */,
+				4B0C48502640240B002BD081 /* InputContainerView.swift in Sources */,
 				4BFD09C3263FEC3E004D43E2 /* LoginService.swift in Sources */,
 				4BFD09C7263FF144004D43E2 /* SignupViewModel.swift in Sources */,
 				4BFD0983263FB004004D43E2 /* AppDelegate.swift in Sources */,
