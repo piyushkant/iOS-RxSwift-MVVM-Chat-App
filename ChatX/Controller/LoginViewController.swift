@@ -35,6 +35,10 @@ class LoginViewController: UIViewController, ViewType {
         return iv
     }()
     
+    private let emailTextField = CredInputTextField(placeHolder: "Email")
+    private let passwordTextField = CredInputTextField(placeHolder: "Password")
+    private let loginButton = LoginButton(title: "Login", color:#colorLiteral(red: 0.2427886426, green: 0.4366536736, blue: 0.7726411223, alpha: 1))
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -50,6 +54,7 @@ class LoginViewController: UIViewController, ViewType {
     // MARK: - Initial UI Setup
     func setupUI() {
         self.setupAppLogoImageView()
+        self.setupAuthStackView()
     }
     
     private func setupAppLogoImageView() {
@@ -57,8 +62,26 @@ class LoginViewController: UIViewController, ViewType {
         self.appLogoImageView.snp.makeConstraints {
             $0.centerX.equalToSuperview()
             $0.top.equalToSuperview().offset(100)
-            $0.width.equalTo(120)
-            $0.height.equalTo(120)
+            $0.width.equalTo(100)
+            $0.height.equalTo(100)
+        }
+    }
+    
+    private func setupAuthStackView() {
+        let stackView = UIStackView(arrangedSubviews: [emailTextField, passwordTextField, loginButton])
+        view.addSubview(stackView)
+        stackView.axis = .vertical
+        stackView.spacing = 10
+        
+        [emailTextField, passwordTextField, loginButton].forEach({
+            $0.snp.makeConstraints {
+                $0.height.equalTo(50)
+            }
+        })
+        
+        stackView.snp.makeConstraints {
+            $0.top.equalTo(appLogoImageView.snp.bottom).offset(50)
+            $0.trailing.leading.equalToSuperview().offset(50)
         }
     }
     
