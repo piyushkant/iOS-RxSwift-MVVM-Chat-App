@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class LoginButton: UIButton {
+final class AuthButton: UIButton {
     override init(frame: CGRect) {
         super.init(frame: frame)
     }

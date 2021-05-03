@@ -19,7 +19,7 @@ struct LoginViewModel: LoginViewModelBindable {
     let isLoginCompleted: Signal<Bool>
     let isValidForm: Driver<Bool>
     
-    init(service: LoginService = LoginService()) {
+    init(service: AuthService = AuthService()) {
         self.isValidForm = Observable
             .combineLatest(
                 email,

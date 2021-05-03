@@ -35,9 +35,9 @@ class LoginViewController: UIViewController, ViewType {
         return iv
     }()
     
-    private let emailTextField = CredInputTextField(placeHolder: "Email")
-    private let passwordTextField = CredInputTextField(placeHolder: "Password")
-    private let loginButton = LoginButton(title: "Log In", color:#colorLiteral(red: 0.2427886426, green: 0.4366536736, blue: 0.7726411223, alpha: 1))
+    private let emailTextField = InputTextField(placeHolder: "Email")
+    private let passwordTextField = InputTextField(placeHolder: "Password")
+    private let loginButton = AuthButton(title: "Log In", color:#colorLiteral(red: 0.2427886426, green: 0.4366536736, blue: 0.7726411223, alpha: 1))
     
     private lazy var emailContainer = InputContainerView(image: #imageLiteral(resourceName: "mail"), textField: emailTextField)
     private lazy var passwordContainer = InputContainerView(image: #imageLiteral(resourceName: "lock"), textField: passwordTextField)
@@ -153,8 +153,8 @@ class LoginViewController: UIViewController, ViewType {
         
         signupButton.rx.tap
             .subscribe(onNext: { [unowned self] in
-//                let vc = RegistrationController.create(with: RegistrationViewModel())
-//                self.navigationController?.pushViewController(vc, animated: true)
+                let vc = SignupViewController.create(with: SignupViewModel())
+                self.navigationController?.pushViewController(vc, animated: true)
             })
             .disposed(by: disposeBag)
         

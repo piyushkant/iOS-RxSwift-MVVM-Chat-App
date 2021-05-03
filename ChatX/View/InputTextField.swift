@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class CredInputTextField: UITextField {
+final class InputTextField: UITextField {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
