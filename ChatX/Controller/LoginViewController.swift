@@ -37,13 +37,17 @@ class LoginViewController: UIViewController, ViewType {
     
     private let emailTextField = CredInputTextField(placeHolder: "Email")
     private let passwordTextField = CredInputTextField(placeHolder: "Password")
-    private let loginButton = LoginButton(title: "Login", color:#colorLiteral(red: 0.2427886426, green: 0.4366536736, blue: 0.7726411223, alpha: 1))
+    private let loginButton = LoginButton(title: "Log In", color:#colorLiteral(red: 0.2427886426, green: 0.4366536736, blue: 0.7726411223, alpha: 1))
     
     private lazy var emailContainer = InputContainerView(image: #imageLiteral(resourceName: "mail"), textField: emailTextField)
     private lazy var passwordContainer = InputContainerView(image: #imageLiteral(resourceName: "lock"), textField: passwordTextField)
     
+    private let signupButton = SignupButton(firstText: "Create a new account. ", secondText: "Sign Up")
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.view.backgroundColor = .lightGray
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -57,9 +61,10 @@ class LoginViewController: UIViewController, ViewType {
         self.setupDetailAttributesOfUI()
         self.setupAppLogoImageView()
         self.setupAuthStackView()
+        self.setupSignupButton()
         self.setupTapGesture()
     }
-
+    
     private func setupDetailAttributesOfUI() {
         emailTextField.keyboardType = .emailAddress
         passwordTextField.isSecureTextEntry = true
@@ -95,12 +100,63 @@ class LoginViewController: UIViewController, ViewType {
         }
     }
     
+    private func setupSignupButton() {
+        self.view.addSubview(self.signupButton)
+        self.signupButton.snp.makeConstraints {
+            $0.centerX.equalToSuperview()
+            $0.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
+        }
+    }
+    
     private func setupTapGesture() {
         view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
     }
     
     // MARK: - Binding
     func bind() {
+       
+        //Input -> ViewModel
+        emailTextField.rx.text
+            .orEmpty
+            .distinctUntilChanged()
+            .bind(to: viewModel.email)
+            .disposed(by: disposeBag)
+        
+        passwordTextField.rx.text
+            .orEmpty
+            .distinctUntilChanged()
+            .bind(to: viewModel.password)
+            .disposed(by: disposeBag)
+        
+        //viewModel -> Output
+        viewModel.isValidForm
+            .drive(onNext: { [weak self] in
+                self?.loginButton.isEnabled = $0
+                self?.loginButton.backgroundColor = $0 ? #colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1) : #colorLiteral(red: 0.244713217, green: 0.4361641705, blue: 0.7726119161, alpha: 1)
+            })
+            .disposed(by: disposeBag)
+        
+        viewModel.isLoginCompleted
+            .emit(onNext: { [weak self] _ in
+                self?.showActivityIndicator(false)
+//                self?.switchToConversationVC()
+            })
+            .disposed(by: disposeBag)
+        
+        // UI Binding
+        loginButton.rx.tap
+            .do(onNext: { [unowned self] _ in
+                self.showActivityIndicator(true)
+            })
+            .bind(to: viewModel.loginButtonTapped)
+            .disposed(by: disposeBag)
+        
+        signupButton.rx.tap
+            .subscribe(onNext: { [unowned self] in
+//                let vc = RegistrationController.create(with: RegistrationViewModel())
+//                self.navigationController?.pushViewController(vc, animated: true)
+            })
+            .disposed(by: disposeBag)
         
     }
 }
