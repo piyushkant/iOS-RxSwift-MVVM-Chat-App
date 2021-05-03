@@ -57,8 +57,8 @@ class LoginViewController: UIViewController, ViewType {
         self.appLogoImageView.snp.makeConstraints {
             $0.centerX.equalToSuperview()
             $0.top.equalToSuperview().offset(100)
-            $0.width.equalTo(300)
-            $0.height.equalTo(200)
+            $0.width.equalTo(120)
+            $0.height.equalTo(120)
         }
     }
     
