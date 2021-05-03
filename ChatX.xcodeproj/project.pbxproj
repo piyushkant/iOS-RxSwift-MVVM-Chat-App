@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,6 +16,7 @@
 		4BFD098F263FB005004D43E2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BFD098D263FB005004D43E2 /* LaunchScreen.storyboard */; };
 		4BFD099A263FB005004D43E2 /* ChatXTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFD0999263FB005004D43E2 /* ChatXTests.swift */; };
 		4BFD09A5263FB005004D43E2 /* ChatXUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFD09A4263FB005004D43E2 /* ChatXUITests.swift */; };
+		4BFD09B3263FB5D9004D43E2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4BFD09B2263FB5D9004D43E2 /* GoogleService-Info.plist */; };
 		7049C70F98DEBAC6668813A1 /* Pods_ChatXTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27094E691C6A2E4B47BDF0D0 /* Pods_ChatXTests.framework */; };
 		C007CAAAF00A319628391E77 /* Pods_ChatX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2A16028F52F7CAE7E09A5C6 /* Pods_ChatX.framework */; };
 /* End PBXBuildFile section */
@@ -56,6 +57,7 @@
 		4BFD09A0263FB005004D43E2 /* ChatXUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChatXUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BFD09A4263FB005004D43E2 /* ChatXUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatXUITests.swift; sourceTree = "<group>"; };
 		4BFD09A6263FB005004D43E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4BFD09B2263FB5D9004D43E2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5410EFC20BB2BAD49FDEE9AB /* Pods-ChatXTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatXTests.debug.xcconfig"; path = "Target Support Files/Pods-ChatXTests/Pods-ChatXTests.debug.xcconfig"; sourceTree = "<group>"; };
 		6B1B6EC8657179A1FD7F2EF9 /* Pods_ChatX_ChatXUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChatX_ChatXUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA72D7E3BDBD5E54612A860B /* Pods-ChatX-ChatXUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatX-ChatXUITests.debug.xcconfig"; path = "Target Support Files/Pods-ChatX-ChatXUITests/Pods-ChatX-ChatXUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -101,7 +103,6 @@
 				5410EFC20BB2BAD49FDEE9AB /* Pods-ChatXTests.debug.xcconfig */,
 				06E1505AA842EA19CBF826BF /* Pods-ChatXTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -140,11 +141,16 @@
 		4BFD0981263FB004004D43E2 /* ChatX */ = {
 			isa = PBXGroup;
 			children = (
-				4BFD0982263FB004004D43E2 /* AppDelegate.swift */,
-				4BFD0984263FB004004D43E2 /* SceneDelegate.swift */,
-				4BFD0986263FB004004D43E2 /* ViewController.swift */,
+				4BFD09BB263FEA0F004D43E2 /* Utils */,
+				4BFD09BA263FEA04004D43E2 /* Constants */,
+				4BFD09B9263FE95C004D43E2 /* Controller */,
+				4BFD09B8263FE945004D43E2 /* ViewModel */,
+				4BFD09B7263FE937004D43E2 /* Model */,
+				4BFD09B6263FE92F004D43E2 /* View */,
+				4BFD09B5263FE8FF004D43E2 /* Resources */,
+				4BFD09B4263FE8EB004D43E2 /* App */,
+				4BFD09B2263FB5D9004D43E2 /* GoogleService-Info.plist */,
 				4BFD0988263FB004004D43E2 /* Main.storyboard */,
-				4BFD098B263FB005004D43E2 /* Assets.xcassets */,
 				4BFD098D263FB005004D43E2 /* LaunchScreen.storyboard */,
 				4BFD0990263FB005004D43E2 /* Info.plist */,
 			);
@@ -167,6 +173,66 @@
 				4BFD09A6263FB005004D43E2 /* Info.plist */,
 			);
 			path = ChatXUITests;
+			sourceTree = "<group>";
+		};
+		4BFD09B4263FE8EB004D43E2 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				4BFD0982263FB004004D43E2 /* AppDelegate.swift */,
+				4BFD0984263FB004004D43E2 /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		4BFD09B5263FE8FF004D43E2 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4BFD098B263FB005004D43E2 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		4BFD09B6263FE92F004D43E2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4BFD09B7263FE937004D43E2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4BFD09B8263FE945004D43E2 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		4BFD09B9263FE95C004D43E2 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				4BFD0986263FB004004D43E2 /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		4BFD09BA263FEA04004D43E2 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		4BFD09BB263FEA0F004D43E2 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -278,6 +344,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4BFD098F263FB005004D43E2 /* LaunchScreen.storyboard in Resources */,
+				4BFD09B3263FB5D9004D43E2 /* GoogleService-Info.plist in Resources */,
 				4BFD098C263FB005004D43E2 /* Assets.xcassets in Resources */,
 				4BFD098A263FB004004D43E2 /* Main.storyboard in Resources */,
 			);
