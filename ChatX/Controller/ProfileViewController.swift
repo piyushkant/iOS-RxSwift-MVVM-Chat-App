@@ -18,7 +18,6 @@ final class ProfileViewController: UITableViewController, ViewType {
     var disposeBag: DisposeBag!
     var viewModel: ProfileViewModelBindable!
     
-    
     // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,6 +60,7 @@ final class ProfileViewController: UITableViewController, ViewType {
                     self.switchToLoginVC()
                 }
             })
+            .disposed(by: disposeBag)
         
         // ViewModel -> Output
         viewModel.user

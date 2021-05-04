@@ -66,6 +66,31 @@ extension UIViewController {
         }
     }
     
+    func switchToConversationVC() {
+        if #available(iOS 13.0, *) {
+            if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
+                let window = UIWindow(windowScene: windowScene)
+                window.backgroundColor = .systemBackground
+                let chatListVC = ChatListViewController.create(with: ChatListViewModel())
+                let rootVC = UINavigationController(rootViewController: chatListVC)
+                window.rootViewController = rootVC
+                
+                let sceneDelegate = windowScene.delegate as? SceneDelegate
+                window.makeKeyAndVisible()
+                sceneDelegate?.window = window
+            }
+        } else {
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            let window = UIWindow(frame: UIScreen.main.bounds)
+            window.backgroundColor = .systemBackground
+            let chatListVC = ChatListViewController.create(with: ChatListViewModel())
+            let rootVC = UINavigationController(rootViewController: chatListVC)
+            window.rootViewController = rootVC
+            window.makeKeyAndVisible()
+            appDelegate.window = window
+        }
+    }
+    
     func showActivityIndicator(_ show: Bool, withText text: String? = "Loading") {
         view.endEditing(true)
         UIViewController.hud.textLabel.text = text
