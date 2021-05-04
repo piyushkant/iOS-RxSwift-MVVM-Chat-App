@@ -30,34 +30,25 @@ final class SignupViewController: UIViewController, ViewType {
     // MARK: - Properties
     let addPhotoButton: UIButton = {
         let btn = UIButton(type: .system)
-        btn.setImage(#imageLiteral(resourceName: "AddPhoto"), for: .normal)
-        btn.tintColor = .darkGray
+        btn.setImage(#imageLiteral(resourceName: "add7"), for: .normal)
+        btn.tintColor = UIColor(cgColor:#colorLiteral(red: 0, green: 0.7599403262, blue: 0.9988735318, alpha: 1))
         btn.contentMode = .scaleAspectFill
         btn.clipsToBounds = true
         return btn
     }()
     
-    private lazy var emailContainer = InputContainerView(image: #imageLiteral(resourceName: "mail"), textField: emailTextField)
     private let emailTextField = CustomTextField(placeHolder: "Email")
-    
-    private lazy var fullNameContainer = InputContainerView(image: #imageLiteral(resourceName: "mail"), textField: fullNameTextField)
     private let fullNameTextField = CustomTextField(placeHolder: "Full Name")
-    
-    private lazy var userNameContainer = InputContainerView(image: #imageLiteral(resourceName: "mail"), textField: userNameTextField)
     private let userNameTextField = CustomTextField(placeHolder: "Username")
-    
-    private lazy var passwordContainer = InputContainerView(image: #imageLiteral(resourceName: "mail"), textField: passwordTextField)
     private let passwordTextField = CustomTextField(placeHolder: "Password")
-        
-    private let signUpButton: UIButton = AuthButton(title: "Sign Up", color: #colorLiteral(red: 0.244713217, green: 0.4361641705, blue: 0.7726119161, alpha: 1))
-    
-    private let loginPageButton = BottomButton(firstText: "Already have an account? ", secondText: "Log In")
+    private let signUpButton: UIButton = AuthButton(title: "Sign Up", color:#colorLiteral(red: 0, green: 0.7599403262, blue: 0.9988735318, alpha: 1))
+    private let bottomButton = BottomButton(firstText: "Go back. ", secondText: "Log In")
     
     private lazy var stackContents = [
-        emailContainer,
-        fullNameContainer,
-        userNameContainer,
-        passwordContainer,
+        emailTextField,
+        fullNameTextField,
+        userNameTextField,
+        passwordTextField,
         signUpButton
     ]
     
@@ -69,8 +60,12 @@ final class SignupViewController: UIViewController, ViewType {
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.view.backgroundColor = .lightGray
+    }
+    
+    //remove me
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.isHidden = true
     }
     
     func setupUI() {
@@ -83,6 +78,7 @@ final class SignupViewController: UIViewController, ViewType {
     
     
     private func setupUIAttributeThings() {
+        view.backgroundColor = .white
         passwordTextField.isSecureTextEntry = true
         emailTextField.keyboardType = .emailAddress
     }
@@ -92,7 +88,7 @@ final class SignupViewController: UIViewController, ViewType {
         addPhotoButton.snp.makeConstraints {
             $0.centerX.equalToSuperview()
             $0.top.equalToSuperview().offset(50)
-            $0.width.height.equalTo(200)
+            $0.width.height.equalTo(100)
         }
     }
     
@@ -100,7 +96,7 @@ final class SignupViewController: UIViewController, ViewType {
         stackContents.forEach({ stackView.addArrangedSubview($0) })
         stackView.axis = .vertical
         stackView.spacing = 20
-        stackView.setCustomSpacing(10, after: passwordContainer)
+        stackView.setCustomSpacing(10, after: passwordTextField)
         stackContents.forEach({
             $0.snp.makeConstraints {
                 $0.height.equalTo(50)
@@ -115,8 +111,8 @@ final class SignupViewController: UIViewController, ViewType {
     }
     
     private func setupLoginPageButton() {
-        view.addSubview(loginPageButton)
-        loginPageButton.snp.makeConstraints {
+        view.addSubview(bottomButton)
+        bottomButton.snp.makeConstraints {
             $0.centerX.equalToSuperview()
             $0.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
         }
@@ -163,7 +159,7 @@ final class SignupViewController: UIViewController, ViewType {
         viewModel.isFormValid
             .drive(onNext: { [weak self] in
                 self?.signUpButton.isEnabled = $0
-                self?.signUpButton.backgroundColor =  $0 ? #colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1) : #colorLiteral(red: 0.244713217, green: 0.4361641705, blue: 0.7726119161, alpha: 1)
+                self?.signUpButton.backgroundColor =  $0 ? #colorLiteral(red: 0.001363703748, green: 0.4848565459, blue: 0.9982791543, alpha: 1) : #colorLiteral(red: 0, green: 0.7599403262, blue: 0.9988735318, alpha: 1)
             })
             .disposed(by: disposeBag)
 
@@ -193,7 +189,7 @@ final class SignupViewController: UIViewController, ViewType {
             })
             .disposed(by: disposeBag)
 
-        loginPageButton.rx.tap
+        bottomButton.rx.tap
             .subscribe(onNext:{ [unowned self] in
                 self.navigationController?.popViewController(animated: true)
             })

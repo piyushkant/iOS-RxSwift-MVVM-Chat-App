@@ -41,8 +41,6 @@ class LoginViewController: UIViewController, ViewType {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.view.backgroundColor = .white
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -60,6 +58,7 @@ class LoginViewController: UIViewController, ViewType {
     }
     
     private func setupDetailAttributesOfUI() {
+        view.backgroundColor = .white
         emailTextField.keyboardType = .emailAddress
         passwordTextField.isSecureTextEntry = true
         navigationController?.navigationBar.isHidden = true
@@ -134,6 +133,7 @@ class LoginViewController: UIViewController, ViewType {
             .emit(onNext: { [weak self] _ in
                 self?.showActivityIndicator(false)
 //                self?.switchToConversationVC()
+                print("isLoginCompleted", "Login Succes!!!")
             })
             .disposed(by: disposeBag)
         
