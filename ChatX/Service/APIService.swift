@@ -94,4 +94,50 @@ final class APIService {
             }
         }
     }
+    
+    func fetchMessages(forUser user: User) -> Observable<[Message]> {
+        guard let currentUid = Auth.auth().currentUser?.uid else { return Observable.empty() }
+        var messages = [Message]()
+        return Observable.create { (observer) -> Disposable in
+            let query = self.firestoreMessages.document(currentUid).collection(user.uid).order(by: "timestamp")
+            
+            query.addSnapshotListener { (snapshot, error) in
+                snapshot?.documentChanges.forEach({ (change) in
+                    if change.type == .added {
+                        let dic = change.document.data()
+                        messages.append(Message(dic: dic))
+                    }
+                })
+                observer.onNext(messages)
+            }
+            
+            return Disposables.create {
+                observer.onCompleted()
+            }
+        }
+    }
+    
+    func uploadMessage(_ message: String, To user: User?) -> Observable<Bool> {
+        guard let currentUid = Auth.auth().currentUser?.uid, let user = user else { return Observable.just(false)}
+        
+        let message: [String: Any] = [
+            "text": message,
+            "fromId": currentUid,
+            "toId": user.uid,
+            "timestamp": Timestamp(date: Date())
+        ]
+                
+        return Observable.create { (observer) -> Disposable in
+            self.firestoreMessages.document(currentUid).collection(user.uid).addDocument(data: message) { (_) in
+                self.firestoreMessages.document(user.uid).collection(currentUid).addDocument(data: message) { (_) in
+                    self.firestoreMessages.document(currentUid).collection("recent-messages").document(user.uid).setData(message)
+                    self.firestoreMessages.document(user.uid).collection("recent-messages").document(currentUid).setData(message)
+                    observer.onNext(true)
+                }
+            }
+            return Disposables.create{
+                observer.onCompleted()
+            }
+        }
+    }
 }

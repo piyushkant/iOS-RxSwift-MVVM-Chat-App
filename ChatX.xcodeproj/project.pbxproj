@@ -30,6 +30,12 @@
 		4BEB394F26415F28006FC9BB /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BEB394E26415F28006FC9BB /* ProfileViewModel.swift */; };
 		4BEB395126415FBC006FC9BB /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BEB395026415FBC006FC9BB /* ProfileHeaderView.swift */; };
 		4BEB395326415FCB006FC9BB /* ProfileFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BEB395226415FCB006FC9BB /* ProfileFooterView.swift */; };
+		4BEB39572641691A006FC9BB /* ChatViewModelBindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BEB39562641691A006FC9BB /* ChatViewModelBindable.swift */; };
+		4BEB395926416942006FC9BB /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BEB395826416942006FC9BB /* ChatViewModel.swift */; };
+		4BEB395B26416950006FC9BB /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BEB395A26416950006FC9BB /* ChatViewController.swift */; };
+		4BEB395D26416BE7006FC9BB /* CustomInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BEB395C26416BE7006FC9BB /* CustomInputView.swift */; };
+		4BEB395F26416E9D006FC9BB /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BEB395E26416E9D006FC9BB /* MessageCell.swift */; };
+		4BEB396126416EFC006FC9BB /* MessageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BEB396026416EFC006FC9BB /* MessageViewModel.swift */; };
 		4BFD0983263FB004004D43E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFD0982263FB004004D43E2 /* AppDelegate.swift */; };
 		4BFD0985263FB004004D43E2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFD0984263FB004004D43E2 /* SceneDelegate.swift */; };
 		4BFD0987263FB004004D43E2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFD0986263FB004004D43E2 /* LoginViewController.swift */; };
@@ -97,6 +103,12 @@
 		4BEB394E26415F28006FC9BB /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		4BEB395026415FBC006FC9BB /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		4BEB395226415FCB006FC9BB /* ProfileFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFooterView.swift; sourceTree = "<group>"; };
+		4BEB39562641691A006FC9BB /* ChatViewModelBindable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModelBindable.swift; sourceTree = "<group>"; };
+		4BEB395826416942006FC9BB /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
+		4BEB395A26416950006FC9BB /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		4BEB395C26416BE7006FC9BB /* CustomInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInputView.swift; sourceTree = "<group>"; };
+		4BEB395E26416E9D006FC9BB /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
+		4BEB396026416EFC006FC9BB /* MessageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewModel.swift; sourceTree = "<group>"; };
 		4BFD097F263FB004004D43E2 /* ChatX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BFD0982263FB004004D43E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4BFD0984263FB004004D43E2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -206,6 +218,7 @@
 				4B0C486326411DD3002BD081 /* ChatListModelBindable.swift */,
 				4B0C487126412B85002BD081 /* FriendListViewModelBindable.swift */,
 				4BEB394A26415EDF006FC9BB /* ProfileViewModelBindable.swift */,
+				4BEB39562641691A006FC9BB /* ChatViewModelBindable.swift */,
 			);
 			path = Bindable;
 			sourceTree = "<group>";
@@ -299,6 +312,8 @@
 				4BEB394826412EF5006FC9BB /* UserCell.swift */,
 				4BEB395026415FBC006FC9BB /* ProfileHeaderView.swift */,
 				4BEB395226415FCB006FC9BB /* ProfileFooterView.swift */,
+				4BEB395C26416BE7006FC9BB /* CustomInputView.swift */,
+				4BEB395E26416E9D006FC9BB /* MessageCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -321,6 +336,8 @@
 				4B0C486526411E11002BD081 /* ChatListViewModel.swift */,
 				4B0C486F26412B71002BD081 /* FriendListViewModel.swift */,
 				4BEB394E26415F28006FC9BB /* ProfileViewModel.swift */,
+				4BEB395826416942006FC9BB /* ChatViewModel.swift */,
+				4BEB396026416EFC006FC9BB /* MessageViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -333,6 +350,7 @@
 				4B0C486726412348002BD081 /* ChatListViewController.swift */,
 				4B0C486D26412B5C002BD081 /* FriendListViewController.swift */,
 				4BEB394C26415F15006FC9BB /* ProfileViewController.swift */,
+				4BEB395A26416950006FC9BB /* ChatViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -611,6 +629,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4B0C48592640393E002BD081 /* Reactive+Ext.swift in Sources */,
+				4BEB395F26416E9D006FC9BB /* MessageCell.swift in Sources */,
 				4B0C486A26412394002BD081 /* APIService.swift in Sources */,
 				4BFD0987263FB004004D43E2 /* LoginViewController.swift in Sources */,
 				4B0C485326402CC0002BD081 /* UIViewController+Ext.swift in Sources */,
@@ -627,23 +646,28 @@
 				4B0C486E26412B5C002BD081 /* FriendListViewController.swift in Sources */,
 				4B0C487226412B85002BD081 /* FriendListViewModelBindable.swift in Sources */,
 				4B0C485526402E1F002BD081 /* BottomButton.swift in Sources */,
+				4BEB395D26416BE7006FC9BB /* CustomInputView.swift in Sources */,
+				4BEB395926416942006FC9BB /* ChatViewModel.swift in Sources */,
 				4B0C4857264034BD002BD081 /* SignupViewController.swift in Sources */,
 				4BEB394F26415F28006FC9BB /* ProfileViewModel.swift in Sources */,
 				4BEB395326415FCB006FC9BB /* ProfileFooterView.swift in Sources */,
 				4BFD09CE263FF25C004D43E2 /* Conversation.swift in Sources */,
 				4B0C484C26400A33002BD081 /* CustomTextField.swift in Sources */,
 				4BEB395126415FBC006FC9BB /* ProfileHeaderView.swift in Sources */,
+				4BEB39572641691A006FC9BB /* ChatViewModelBindable.swift in Sources */,
 				4BFD09C9263FF17B004D43E2 /* User.swift in Sources */,
 				4BFD09D2263FFC00004D43E2 /* Constants.swift in Sources */,
 				4B0C486C264126BB002BD081 /* ChatListCell.swift in Sources */,
 				4BFD09C0263FEB57004D43E2 /* ViewModelType.swift in Sources */,
 				4B0C484E26400C88002BD081 /* AuthButton.swift in Sources */,
+				4BEB395B26416950006FC9BB /* ChatViewController.swift in Sources */,
 				4B0C486826412348002BD081 /* ChatListViewController.swift in Sources */,
 				4B0C4862264113EE002BD081 /* SignupViewModelBindable.swift in Sources */,
 				4BFD09CB263FF18C004D43E2 /* Message.swift in Sources */,
 				4B0C487026412B71002BD081 /* FriendListViewModel.swift in Sources */,
 				4BFD0985263FB004004D43E2 /* SceneDelegate.swift in Sources */,
 				4BFD09C5263FF12D004D43E2 /* LoginViewModel.swift in Sources */,
+				4BEB396126416EFC006FC9BB /* MessageViewModel.swift in Sources */,
 				4BFD09D0263FF83C004D43E2 /* Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
