@@ -15,7 +15,7 @@ final class ChatListCell: UITableViewCell {
     // MARK: - Properties
     var conversation: Conversation? {
         didSet{
-            setData()
+            setupCell()
         }
     }
     
@@ -72,7 +72,7 @@ final class ChatListCell: UITableViewCell {
     }
     
     // MARK: - Cell Setter
-    private func setData() {
+    private func setupCell() {
         guard let conversation = self.conversation else { return }
         guard let url = URL(string: conversation.user.profileImageUrl) else { return }
         profileImageView.sd_setImage(with: url)

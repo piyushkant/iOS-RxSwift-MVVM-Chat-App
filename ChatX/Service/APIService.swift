@@ -21,12 +21,38 @@ final class APIService {
     let firestoreUsers = Firestore.firestore().collection("users")
     let firestoreMessages = Firestore.firestore().collection("messages")
     
+    private init() { }
+    
     func fetchUser(uid: String) -> Observable<User?> {
         return Observable.create { (observer) -> Disposable in
             self.firestoreUsers.document(uid).getDocument { (snapshot, error) in
                 guard let dic = snapshot?.data(),
-                    let user = User(user: dic) else { return }
+                      let user = User(user: dic) else { return }
                 observer.onNext(user)
+                observer.onCompleted()
+            }
+            return Disposables.create()
+        }
+    }
+    
+    func fetchUsers() -> Observable<[User]> {
+        return Observable<[User]>.create { (observer) -> Disposable in
+            self.firestoreUsers.getDocuments { (snapshot, error) in
+                if let error = error {
+                    print("Failed to fetch users:", error)
+                    observer.onError(error)
+                    return
+                }
+                
+                var users = [User]()
+                snapshot?.documents.forEach({ doc in
+                    let json = doc.data()
+                    guard let user = User(user: json),
+                          user.uid != Auth.auth().currentUser?.uid else { return }
+                    users.append(user)
+                })
+                
+                observer.onNext(users)
                 observer.onCompleted()
             }
             return Disposables.create()

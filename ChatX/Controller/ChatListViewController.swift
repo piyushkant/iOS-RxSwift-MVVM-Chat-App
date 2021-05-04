@@ -76,11 +76,11 @@ final class ChatListViewController: UIViewController, ViewType {
         
         addMessageButton.rx.tap
             .subscribe(onNext:{ [unowned self] in
-                //                let newMessageVC = NewMessageController.create(with: NewMessageViewModel())
-                //                self.newMessageControllerBind(newMsgVC: newMessageVC)
-                //                let newMessageVCNavi = UINavigationController(rootViewController: newMessageVC)
-                //                newMessageVCNavi.modalPresentationStyle = .fullScreen
-                //                self.present(newMessageVCNavi, animated: true)
+                let friendListVC = FriendListViewController.create(with: FriendListViewModel())
+//                self.newMessageControllerBind(newMsgVC: newMessageVC)
+                let friendListVCNavigationController = UINavigationController(rootViewController: friendListVC)
+                friendListVCNavigationController.modalPresentationStyle = .fullScreen
+                self.present(friendListVCNavigationController, animated: true)
             })
             .disposed(by: disposeBag)
         
@@ -105,4 +105,16 @@ final class ChatListViewController: UIViewController, ViewType {
             }
             .disposed(by: disposeBag)
     }
+    
+//    // MARK: - Binding Helper
+//    private func addMessageControllerBind(vc: FriendListViewModel) {
+//        vc.tableView.rx.modelSelected(User.self)
+//            .subscribe(onNext: { [weak self] user in
+//                let chatVC = ChatController.create(with: ChatViewModel(user: user))
+//                newMsgVC.searchController.dismiss(animated: true)
+//                newMsgVC.dismiss(animated: true)
+//                self?.navigationController?.pushViewController(chatVC, animated: true)
+//            })
+//            .disposed(by: disposeBag)
+//    }
 }

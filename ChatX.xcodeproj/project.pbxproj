@@ -21,6 +21,10 @@
 		4B0C486826412348002BD081 /* ChatListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0C486726412348002BD081 /* ChatListViewController.swift */; };
 		4B0C486A26412394002BD081 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0C486926412394002BD081 /* APIService.swift */; };
 		4B0C486C264126BB002BD081 /* ChatListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0C486B264126BB002BD081 /* ChatListCell.swift */; };
+		4B0C486E26412B5C002BD081 /* FriendListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0C486D26412B5C002BD081 /* FriendListViewController.swift */; };
+		4B0C487026412B71002BD081 /* FriendListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0C486F26412B71002BD081 /* FriendListViewModel.swift */; };
+		4B0C487226412B85002BD081 /* FriendListViewModelBindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0C487126412B85002BD081 /* FriendListViewModelBindable.swift */; };
+		4BEB394926412EF5006FC9BB /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BEB394826412EF5006FC9BB /* UserCell.swift */; };
 		4BFD0983263FB004004D43E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFD0982263FB004004D43E2 /* AppDelegate.swift */; };
 		4BFD0985263FB004004D43E2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFD0984263FB004004D43E2 /* SceneDelegate.swift */; };
 		4BFD0987263FB004004D43E2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFD0986263FB004004D43E2 /* LoginViewController.swift */; };
@@ -78,7 +82,11 @@
 		4B0C486726412348002BD081 /* ChatListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListViewController.swift; sourceTree = "<group>"; };
 		4B0C486926412394002BD081 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		4B0C486B264126BB002BD081 /* ChatListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListCell.swift; sourceTree = "<group>"; };
+		4B0C486D26412B5C002BD081 /* FriendListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListViewController.swift; sourceTree = "<group>"; };
+		4B0C486F26412B71002BD081 /* FriendListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListViewModel.swift; sourceTree = "<group>"; };
+		4B0C487126412B85002BD081 /* FriendListViewModelBindable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListViewModelBindable.swift; sourceTree = "<group>"; };
 		4B1A498DAEF82B5E0A9E4EE2 /* Pods-ChatX.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatX.release.xcconfig"; path = "Target Support Files/Pods-ChatX/Pods-ChatX.release.xcconfig"; sourceTree = "<group>"; };
+		4BEB394826412EF5006FC9BB /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		4BFD097F263FB004004D43E2 /* ChatX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BFD0982263FB004004D43E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4BFD0984263FB004004D43E2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -171,6 +179,26 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		4B0C487326412B8D002BD081 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				4BFD09BD263FEB26004D43E2 /* ViewType.swift */,
+				4BFD09BF263FEB57004D43E2 /* ViewModelType.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		4B0C487426412B94002BD081 /* Bindable */ = {
+			isa = PBXGroup;
+			children = (
+				4B0C485F2641135E002BD081 /* LoginViewModelBindable.swift */,
+				4B0C4861264113EE002BD081 /* SignupViewModelBindable.swift */,
+				4B0C486326411DD3002BD081 /* ChatListModelBindable.swift */,
+				4B0C487126412B85002BD081 /* FriendListViewModelBindable.swift */,
+			);
+			path = Bindable;
+			sourceTree = "<group>";
+		};
 		4BFD0976263FB004004D43E2 = {
 			isa = PBXGroup;
 			children = (
@@ -257,6 +285,7 @@
 				4B0C484D26400C88002BD081 /* AuthButton.swift */,
 				4B0C485426402E1F002BD081 /* BottomButton.swift */,
 				4B0C486B264126BB002BD081 /* ChatListCell.swift */,
+				4BEB394826412EF5006FC9BB /* UserCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -277,6 +306,7 @@
 				4BFD09C4263FF12D004D43E2 /* LoginViewModel.swift */,
 				4BFD09C6263FF144004D43E2 /* SignupViewModel.swift */,
 				4B0C486526411E11002BD081 /* ChatListViewModel.swift */,
+				4B0C486F26412B71002BD081 /* FriendListViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -287,6 +317,7 @@
 				4BFD0986263FB004004D43E2 /* LoginViewController.swift */,
 				4B0C4856264034BD002BD081 /* SignupViewController.swift */,
 				4B0C486726412348002BD081 /* ChatListViewController.swift */,
+				4B0C486D26412B5C002BD081 /* FriendListViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -310,11 +341,8 @@
 		4BFD09BC263FEAB4004D43E2 /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
-				4BFD09BD263FEB26004D43E2 /* ViewType.swift */,
-				4BFD09BF263FEB57004D43E2 /* ViewModelType.swift */,
-				4B0C485F2641135E002BD081 /* LoginViewModelBindable.swift */,
-				4B0C4861264113EE002BD081 /* SignupViewModelBindable.swift */,
-				4B0C486326411DD3002BD081 /* ChatListModelBindable.swift */,
+				4B0C487426412B94002BD081 /* Bindable */,
+				4B0C487326412B8D002BD081 /* Base */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -575,9 +603,12 @@
 				4BFD09C7263FF144004D43E2 /* SignupViewModel.swift in Sources */,
 				4B0C486626411E11002BD081 /* ChatListViewModel.swift in Sources */,
 				4B0C48602641135E002BD081 /* LoginViewModelBindable.swift in Sources */,
+				4BEB394926412EF5006FC9BB /* UserCell.swift in Sources */,
 				4BFD0983263FB004004D43E2 /* AppDelegate.swift in Sources */,
 				4BFD09BE263FEB26004D43E2 /* ViewType.swift in Sources */,
 				4B0C486426411DD4002BD081 /* ChatListModelBindable.swift in Sources */,
+				4B0C486E26412B5C002BD081 /* FriendListViewController.swift in Sources */,
+				4B0C487226412B85002BD081 /* FriendListViewModelBindable.swift in Sources */,
 				4B0C485526402E1F002BD081 /* BottomButton.swift in Sources */,
 				4B0C4857264034BD002BD081 /* SignupViewController.swift in Sources */,
 				4BFD09CE263FF25C004D43E2 /* Conversation.swift in Sources */,
@@ -590,6 +621,7 @@
 				4B0C486826412348002BD081 /* ChatListViewController.swift in Sources */,
 				4B0C4862264113EE002BD081 /* SignupViewModelBindable.swift in Sources */,
 				4BFD09CB263FF18C004D43E2 /* Message.swift in Sources */,
+				4B0C487026412B71002BD081 /* FriendListViewModel.swift in Sources */,
 				4BFD0985263FB004004D43E2 /* SceneDelegate.swift in Sources */,
 				4BFD09C5263FF12D004D43E2 /* LoginViewModel.swift in Sources */,
 				4BFD09D0263FF83C004D43E2 /* Utils.swift in Sources */,
