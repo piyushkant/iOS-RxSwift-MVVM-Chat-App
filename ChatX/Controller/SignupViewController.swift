@@ -71,9 +71,6 @@ final class SignupViewController: UIViewController, ViewType {
         super.viewDidLoad()
         
         self.view.backgroundColor = .lightGray
-        
-//        signUpButton.isEnabled = true
-//        signUpButton.backgroundColor =  true ? #colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1) : #colorLiteral(red: 0.244713217, green: 0.4361641705, blue: 0.7726119161, alpha: 1)
     }
     
     func setupUI() {
@@ -131,7 +128,6 @@ final class SignupViewController: UIViewController, ViewType {
     
     // MARK: - Binding
     func bind() {
-        print("SignupViewController", "bind()")
         
         // Input -> ViewModel
         signUpButton.rx.tap
@@ -170,17 +166,17 @@ final class SignupViewController: UIViewController, ViewType {
                 self?.signUpButton.backgroundColor =  $0 ? #colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1) : #colorLiteral(red: 0.244713217, green: 0.4361641705, blue: 0.7726119161, alpha: 1)
             })
             .disposed(by: disposeBag)
-        
+
         viewModel.profileImage
             .bind(to: self.rx.setProfileImage)
             .disposed(by: disposeBag)
-        
+
         viewModel.isRegistering
             .drive(onNext: {[weak self] in
                 self?.showActivityIndicator($0, withText: $0 ? "Registering" : nil)
             })
             .disposed(by: disposeBag)
-        
+
         viewModel.isRegistered
             .filter{ $0 == true }
             .emit(onNext: { [weak self] _ in
@@ -188,22 +184,22 @@ final class SignupViewController: UIViewController, ViewType {
                 print("isRegistered", "Success!!!!")
             })
             .disposed(by: disposeBag)
-        
-        
+
+
         // UI Binding
         addPhotoButton.rx.tap
             .subscribe(onNext: { [unowned self] in
                 self.didTapAddPhotoButton(viewController: self)
             })
             .disposed(by: disposeBag)
-        
+
         loginPageButton.rx.tap
             .subscribe(onNext:{ [unowned self] in
                 self.navigationController?.popViewController(animated: true)
             })
             .disposed(by: disposeBag)
-        
-        
+
+
         // Notification binding
         NotificationCenter.default.rx.notification(UIResponder.keyboardWillShowNotification)
             .map { [weak self] notification -> CGFloat in
@@ -214,7 +210,7 @@ final class SignupViewController: UIViewController, ViewType {
                 self?.view.transform = CGAffineTransform(translationX: 0, y: -$0 - 8)
             })
             .disposed(by: disposeBag)
-        
+
         NotificationCenter.default.rx.notification(UIResponder.keyboardWillHideNotification)
             .subscribe(onNext: { [weak self] noti -> Void in
                 UIView.animate(withDuration: 0.5,

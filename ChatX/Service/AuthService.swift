@@ -11,8 +11,6 @@ import RxCocoa
 import Firebase
 import FirebaseFirestore
 
-typealias UserValues = (profileImage: UIImage?, email: String, fullName: String, userName: String, password: String)
-
 final class AuthService {
     
     init() { }

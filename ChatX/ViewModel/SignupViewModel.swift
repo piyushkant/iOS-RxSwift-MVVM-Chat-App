@@ -10,6 +10,8 @@ import RxSwift
 import RxCocoa
 import Firebase
 
+typealias UserValues = (profileImage: UIImage?, email: String, fullName: String, userName: String, password: String)
+
 struct SignupViewModel: SignupViewModelBindable {
     
     // MARK: - Properties
