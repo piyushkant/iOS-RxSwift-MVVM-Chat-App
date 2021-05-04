@@ -8,13 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		2D7E16AE99ED42C0DA390DA8 /* Pods_ChatX_ChatXUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B1B6EC8657179A1FD7F2EF9 /* Pods_ChatX_ChatXUITests.framework */; };
-		4B0C484C26400A33002BD081 /* InputTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0C484B26400A33002BD081 /* InputTextField.swift */; };
+		4B0C484C26400A33002BD081 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0C484B26400A33002BD081 /* CustomTextField.swift */; };
 		4B0C484E26400C88002BD081 /* AuthButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0C484D26400C88002BD081 /* AuthButton.swift */; };
 		4B0C48502640240B002BD081 /* InputContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0C484F2640240B002BD081 /* InputContainerView.swift */; };
 		4B0C485326402CC0002BD081 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0C485226402CC0002BD081 /* UIViewController+Ext.swift */; };
 		4B0C485526402E1F002BD081 /* SignupButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0C485426402E1F002BD081 /* SignupButton.swift */; };
 		4B0C4857264034BD002BD081 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0C4856264034BD002BD081 /* SignupViewController.swift */; };
 		4B0C48592640393E002BD081 /* Reactive+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0C48582640393E002BD081 /* Reactive+Ext.swift */; };
+		4B0C485B2640F541002BD081 /* UIButton+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0C485A2640F541002BD081 /* UIButton+Ext.swift */; };
+		4B0C485D2640F576002BD081 /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0C485C2640F576002BD081 /* UIColor+Ext.swift */; };
 		4BFD0983263FB004004D43E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFD0982263FB004004D43E2 /* AppDelegate.swift */; };
 		4BFD0985263FB004004D43E2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFD0984263FB004004D43E2 /* SceneDelegate.swift */; };
 		4BFD0987263FB004004D43E2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFD0986263FB004004D43E2 /* LoginViewController.swift */; };
@@ -59,13 +61,15 @@
 		00DCDDF3E0FFEFEE50A83594 /* Pods-ChatX-ChatXUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatX-ChatXUITests.release.xcconfig"; path = "Target Support Files/Pods-ChatX-ChatXUITests/Pods-ChatX-ChatXUITests.release.xcconfig"; sourceTree = "<group>"; };
 		06E1505AA842EA19CBF826BF /* Pods-ChatXTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatXTests.release.xcconfig"; path = "Target Support Files/Pods-ChatXTests/Pods-ChatXTests.release.xcconfig"; sourceTree = "<group>"; };
 		27094E691C6A2E4B47BDF0D0 /* Pods_ChatXTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChatXTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4B0C484B26400A33002BD081 /* InputTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputTextField.swift; sourceTree = "<group>"; };
+		4B0C484B26400A33002BD081 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		4B0C484D26400C88002BD081 /* AuthButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthButton.swift; sourceTree = "<group>"; };
 		4B0C484F2640240B002BD081 /* InputContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputContainerView.swift; sourceTree = "<group>"; };
 		4B0C485226402CC0002BD081 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
 		4B0C485426402E1F002BD081 /* SignupButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupButton.swift; sourceTree = "<group>"; };
 		4B0C4856264034BD002BD081 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		4B0C48582640393E002BD081 /* Reactive+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reactive+Ext.swift"; sourceTree = "<group>"; };
+		4B0C485A2640F541002BD081 /* UIButton+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Ext.swift"; sourceTree = "<group>"; };
+		4B0C485C2640F576002BD081 /* UIColor+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext.swift"; sourceTree = "<group>"; };
 		4B1A498DAEF82B5E0A9E4EE2 /* Pods-ChatX.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatX.release.xcconfig"; path = "Target Support Files/Pods-ChatX/Pods-ChatX.release.xcconfig"; sourceTree = "<group>"; };
 		4BFD097F263FB004004D43E2 /* ChatX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BFD0982263FB004004D43E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -155,6 +159,8 @@
 			children = (
 				4B0C485226402CC0002BD081 /* UIViewController+Ext.swift */,
 				4B0C48582640393E002BD081 /* Reactive+Ext.swift */,
+				4B0C485A2640F541002BD081 /* UIButton+Ext.swift */,
+				4B0C485C2640F576002BD081 /* UIColor+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -241,7 +247,7 @@
 		4BFD09B6263FE92F004D43E2 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				4B0C484B26400A33002BD081 /* InputTextField.swift */,
+				4B0C484B26400A33002BD081 /* CustomTextField.swift */,
 				4B0C484D26400C88002BD081 /* AuthButton.swift */,
 				4B0C484F2640240B002BD081 /* InputContainerView.swift */,
 				4B0C485426402E1F002BD081 /* SignupButton.swift */,
@@ -551,6 +557,7 @@
 			files = (
 				4B0C48592640393E002BD081 /* Reactive+Ext.swift in Sources */,
 				4BFD0987263FB004004D43E2 /* LoginViewController.swift in Sources */,
+				4B0C485B2640F541002BD081 /* UIButton+Ext.swift in Sources */,
 				4B0C48502640240B002BD081 /* InputContainerView.swift in Sources */,
 				4B0C485326402CC0002BD081 /* UIViewController+Ext.swift in Sources */,
 				4BFD09C3263FEC3E004D43E2 /* AuthService.swift in Sources */,
@@ -560,9 +567,10 @@
 				4B0C485526402E1F002BD081 /* SignupButton.swift in Sources */,
 				4B0C4857264034BD002BD081 /* SignupViewController.swift in Sources */,
 				4BFD09CE263FF25C004D43E2 /* Conversation.swift in Sources */,
-				4B0C484C26400A33002BD081 /* InputTextField.swift in Sources */,
+				4B0C484C26400A33002BD081 /* CustomTextField.swift in Sources */,
 				4BFD09C9263FF17B004D43E2 /* User.swift in Sources */,
 				4BFD09D2263FFC00004D43E2 /* Constants.swift in Sources */,
+				4B0C485D2640F576002BD081 /* UIColor+Ext.swift in Sources */,
 				4BFD09C0263FEB57004D43E2 /* ViewModelType.swift in Sources */,
 				4B0C484E26400C88002BD081 /* AuthButton.swift in Sources */,
 				4BFD09CB263FF18C004D43E2 /* Message.swift in Sources */,

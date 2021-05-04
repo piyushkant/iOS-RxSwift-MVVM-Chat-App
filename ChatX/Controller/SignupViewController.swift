@@ -38,16 +38,16 @@ final class SignupViewController: UIViewController, ViewType {
     }()
     
     private lazy var emailContainer = InputContainerView(image: #imageLiteral(resourceName: "mail"), textField: emailTextField)
-    private let emailTextField = InputTextField(placeHolder: "Email")
+    private let emailTextField = CustomTextField(placeHolder: "Email")
     
     private lazy var fullNameContainer = InputContainerView(image: #imageLiteral(resourceName: "mail"), textField: fullNameTextField)
-    private let fullNameTextField = InputTextField(placeHolder: "Full Name")
+    private let fullNameTextField = CustomTextField(placeHolder: "Full Name")
     
     private lazy var userNameContainer = InputContainerView(image: #imageLiteral(resourceName: "mail"), textField: userNameTextField)
-    private let userNameTextField = InputTextField(placeHolder: "Username")
+    private let userNameTextField = CustomTextField(placeHolder: "Username")
     
     private lazy var passwordContainer = InputContainerView(image: #imageLiteral(resourceName: "mail"), textField: passwordTextField)
-    private let passwordTextField = InputTextField(placeHolder: "Password")
+    private let passwordTextField = CustomTextField(placeHolder: "Password")
         
     private let signUpButton: UIButton = AuthButton(title: "Sign Up", color: #colorLiteral(red: 0.244713217, green: 0.4361641705, blue: 0.7726119161, alpha: 1))
     

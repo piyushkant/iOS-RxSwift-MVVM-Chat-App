@@ -35,19 +35,16 @@ class LoginViewController: UIViewController, ViewType {
         return iv
     }()
     
-    private let emailTextField = InputTextField(placeHolder: "Email")
-    private let passwordTextField = InputTextField(placeHolder: "Password")
+    private let emailTextField = CustomTextField(placeHolder: "Email")
+    private let passwordTextField = CustomTextField(placeHolder: "Password")
     private let loginButton = AuthButton(title: "Log In", color:#colorLiteral(red: 0.2427886426, green: 0.4366536736, blue: 0.7726411223, alpha: 1))
-    
-    private lazy var emailContainer = InputContainerView(image: #imageLiteral(resourceName: "mail"), textField: emailTextField)
-    private lazy var passwordContainer = InputContainerView(image: #imageLiteral(resourceName: "lock"), textField: passwordTextField)
     
     private let signupButton = SignupButton(firstText: "Create a new account. ", secondText: "Sign Up")
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = .lightGray
+        self.view.backgroundColor = .white
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -83,12 +80,12 @@ class LoginViewController: UIViewController, ViewType {
     }
     
     private func setupAuthStackView() {
-        let stackView = UIStackView(arrangedSubviews: [emailContainer, passwordContainer, loginButton])
+        let stackView = UIStackView(arrangedSubviews: [emailTextField, passwordTextField, loginButton])
         view.addSubview(stackView)
         stackView.axis = .vertical
         stackView.spacing = 10
         
-        [emailContainer, passwordContainer, loginButton].forEach({
+        [emailTextField, passwordTextField, loginButton].forEach({
             $0.snp.makeConstraints {
                 $0.height.equalTo(50)
             }
