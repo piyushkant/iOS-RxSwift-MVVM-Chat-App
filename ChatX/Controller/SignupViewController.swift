@@ -8,22 +8,6 @@
 import UIKit
 import RxSwift
 import RxCocoa
-import JGProgressHUD
-
-protocol SignupViewModelBindable: ViewModelType {
-    // Input
-    var profileImage: PublishRelay<UIImage?> { get }
-    var email: PublishRelay<String> { get }
-    var fullName: PublishRelay<String> { get }
-    var userName: PublishRelay<String> { get }
-    var password: PublishRelay<String> { get }
-    var signupButtonTapped: PublishRelay<Void> { get }
-    
-    // Output
-    var isRegistering: Driver<Bool> { get }
-    var isRegistered: Signal<Bool> { get }
-    var isFormValid: Driver<Bool> { get }
-}
 
 final class SignupViewController: UIViewController, ViewType {
     

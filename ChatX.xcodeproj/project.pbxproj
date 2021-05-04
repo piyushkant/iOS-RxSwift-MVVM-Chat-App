@@ -14,8 +14,8 @@
 		4B0C485526402E1F002BD081 /* BottomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0C485426402E1F002BD081 /* BottomButton.swift */; };
 		4B0C4857264034BD002BD081 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0C4856264034BD002BD081 /* SignupViewController.swift */; };
 		4B0C48592640393E002BD081 /* Reactive+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0C48582640393E002BD081 /* Reactive+Ext.swift */; };
-		4B0C485B2640F541002BD081 /* UIButton+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0C485A2640F541002BD081 /* UIButton+Ext.swift */; };
-		4B0C485D2640F576002BD081 /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0C485C2640F576002BD081 /* UIColor+Ext.swift */; };
+		4B0C48602641135E002BD081 /* LoginViewModelBindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0C485F2641135E002BD081 /* LoginViewModelBindable.swift */; };
+		4B0C4862264113EE002BD081 /* SignupViewModelBindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0C4861264113EE002BD081 /* SignupViewModelBindable.swift */; };
 		4BFD0983263FB004004D43E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFD0982263FB004004D43E2 /* AppDelegate.swift */; };
 		4BFD0985263FB004004D43E2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFD0984263FB004004D43E2 /* SceneDelegate.swift */; };
 		4BFD0987263FB004004D43E2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFD0986263FB004004D43E2 /* LoginViewController.swift */; };
@@ -66,8 +66,8 @@
 		4B0C485426402E1F002BD081 /* BottomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomButton.swift; sourceTree = "<group>"; };
 		4B0C4856264034BD002BD081 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		4B0C48582640393E002BD081 /* Reactive+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reactive+Ext.swift"; sourceTree = "<group>"; };
-		4B0C485A2640F541002BD081 /* UIButton+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Ext.swift"; sourceTree = "<group>"; };
-		4B0C485C2640F576002BD081 /* UIColor+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext.swift"; sourceTree = "<group>"; };
+		4B0C485F2641135E002BD081 /* LoginViewModelBindable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModelBindable.swift; sourceTree = "<group>"; };
+		4B0C4861264113EE002BD081 /* SignupViewModelBindable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewModelBindable.swift; sourceTree = "<group>"; };
 		4B1A498DAEF82B5E0A9E4EE2 /* Pods-ChatX.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatX.release.xcconfig"; path = "Target Support Files/Pods-ChatX/Pods-ChatX.release.xcconfig"; sourceTree = "<group>"; };
 		4BFD097F263FB004004D43E2 /* ChatX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BFD0982263FB004004D43E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -157,8 +157,6 @@
 			children = (
 				4B0C485226402CC0002BD081 /* UIViewController+Ext.swift */,
 				4B0C48582640393E002BD081 /* Reactive+Ext.swift */,
-				4B0C485A2640F541002BD081 /* UIButton+Ext.swift */,
-				4B0C485C2640F576002BD081 /* UIColor+Ext.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -190,7 +188,7 @@
 			children = (
 				4B0C485126402CAF002BD081 /* Extension */,
 				4BFD09C1263FEC0D004D43E2 /* Service */,
-				4BFD09BC263FEAB4004D43E2 /* Base */,
+				4BFD09BC263FEAB4004D43E2 /* Protocol */,
 				4BFD09BB263FEA0F004D43E2 /* Utils */,
 				4BFD09BA263FEA04004D43E2 /* Constants */,
 				4BFD09B9263FE95C004D43E2 /* Controller */,
@@ -296,13 +294,15 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
-		4BFD09BC263FEAB4004D43E2 /* Base */ = {
+		4BFD09BC263FEAB4004D43E2 /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
 				4BFD09BD263FEB26004D43E2 /* ViewType.swift */,
 				4BFD09BF263FEB57004D43E2 /* ViewModelType.swift */,
+				4B0C485F2641135E002BD081 /* LoginViewModelBindable.swift */,
+				4B0C4861264113EE002BD081 /* SignupViewModelBindable.swift */,
 			);
-			path = Base;
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 		4BFD09C1263FEC0D004D43E2 /* Service */ = {
@@ -554,10 +554,10 @@
 			files = (
 				4B0C48592640393E002BD081 /* Reactive+Ext.swift in Sources */,
 				4BFD0987263FB004004D43E2 /* LoginViewController.swift in Sources */,
-				4B0C485B2640F541002BD081 /* UIButton+Ext.swift in Sources */,
 				4B0C485326402CC0002BD081 /* UIViewController+Ext.swift in Sources */,
 				4BFD09C3263FEC3E004D43E2 /* AuthService.swift in Sources */,
 				4BFD09C7263FF144004D43E2 /* SignupViewModel.swift in Sources */,
+				4B0C48602641135E002BD081 /* LoginViewModelBindable.swift in Sources */,
 				4BFD0983263FB004004D43E2 /* AppDelegate.swift in Sources */,
 				4BFD09BE263FEB26004D43E2 /* ViewType.swift in Sources */,
 				4B0C485526402E1F002BD081 /* BottomButton.swift in Sources */,
@@ -566,9 +566,9 @@
 				4B0C484C26400A33002BD081 /* CustomTextField.swift in Sources */,
 				4BFD09C9263FF17B004D43E2 /* User.swift in Sources */,
 				4BFD09D2263FFC00004D43E2 /* Constants.swift in Sources */,
-				4B0C485D2640F576002BD081 /* UIColor+Ext.swift in Sources */,
 				4BFD09C0263FEB57004D43E2 /* ViewModelType.swift in Sources */,
 				4B0C484E26400C88002BD081 /* AuthButton.swift in Sources */,
+				4B0C4862264113EE002BD081 /* SignupViewModelBindable.swift in Sources */,
 				4BFD09CB263FF18C004D43E2 /* Message.swift in Sources */,
 				4BFD0985263FB004004D43E2 /* SceneDelegate.swift in Sources */,
 				4BFD09C5263FF12D004D43E2 /* LoginViewModel.swift in Sources */,
