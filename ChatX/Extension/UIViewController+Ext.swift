@@ -15,6 +15,22 @@ import RxCocoa
 extension UIViewController {
     static let hud = JGProgressHUD(style: .dark)
     
+    func setupNavigationBar(with title: String, prefersLargeTitles: Bool) {
+            let appearance = UINavigationBarAppearance()
+            appearance.configureWithOpaqueBackground()
+            appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+            appearance.backgroundColor = #colorLiteral(red: 0, green: 0.7599403262, blue: 0.9988735318, alpha: 1)
+            
+            navigationController?.navigationBar.standardAppearance = appearance
+            navigationController?.navigationBar.compactAppearance = appearance
+            navigationController?.navigationBar.scrollEdgeAppearance = appearance
+            
+            navigationController?.navigationBar.prefersLargeTitles = prefersLargeTitles
+            navigationItem.title = title
+            navigationController?.navigationBar.tintColor = .white
+            navigationController?.navigationBar.overrideUserInterfaceStyle = .dark
+        }
+    
     func showActivityIndicator(_ show: Bool, withText text: String? = "Loading") {
         view.endEditing(true)
         UIViewController.hud.textLabel.text = text
