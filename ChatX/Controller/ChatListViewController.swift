@@ -76,18 +76,18 @@ final class ChatListViewController: UIViewController, ViewType {
         
         addMessageButton.rx.tap
             .subscribe(onNext:{ [unowned self] in
-                let friendListVC = FriendListViewController.create(with: FriendListViewModel())
-//                self.newMessageControllerBind(newMsgVC: newMessageVC)
-                let friendListVCNavigationController = UINavigationController(rootViewController: friendListVC)
-                friendListVCNavigationController.modalPresentationStyle = .fullScreen
-                self.present(friendListVCNavigationController, animated: true)
+                let vc = FriendListViewController.create(with: FriendListViewModel())
+                self.addMessageControllerBind(vc: vc)
+                let nc = UINavigationController(rootViewController: vc)
+                nc.modalPresentationStyle = .fullScreen
+                self.present(nc, animated: true)
             })
             .disposed(by: disposeBag)
         
         tableView.rx.modelSelected(Conversation.self)
             .subscribe(onNext: {[unowned self] conversation in
-                //                let chatVC = ChatController.create(with: ChatViewModel(user: conversation.user))
-                //                self.navigationController?.pushViewController(chatVC, animated: true)
+                let chatVC = ChatViewController.create(with: ChatViewModel(user: conversation.user))
+                self.navigationController?.pushViewController(chatVC, animated: true)
             })
             .disposed(by: disposeBag)
         
@@ -106,15 +106,15 @@ final class ChatListViewController: UIViewController, ViewType {
             .disposed(by: disposeBag)
     }
     
-//    // MARK: - Binding Helper
-//    private func addMessageControllerBind(vc: FriendListViewModel) {
-//        vc.tableView.rx.modelSelected(User.self)
-//            .subscribe(onNext: { [weak self] user in
-//                let chatVC = ChatController.create(with: ChatViewModel(user: user))
-//                newMsgVC.searchController.dismiss(animated: true)
-//                newMsgVC.dismiss(animated: true)
-//                self?.navigationController?.pushViewController(chatVC, animated: true)
-//            })
-//            .disposed(by: disposeBag)
-//    }
+    // MARK: - Binding Helper
+    private func addMessageControllerBind(vc: FriendListViewController) {
+        vc.tableView.rx.modelSelected(User.self)
+            .subscribe(onNext: { [weak self] user in
+                let chatVC = ChatViewController.create(with: ChatViewModel(user: user))
+                vc.searchController.dismiss(animated: true)
+                vc.dismiss(animated: true)
+                self?.navigationController?.pushViewController(chatVC, animated: true)
+            })
+            .disposed(by: disposeBag)
+    }
 }
