@@ -95,7 +95,7 @@ class LoginViewController: UIViewController, ViewType {
     
     // MARK: - Binding
     func bind() {
-       
+        
         //Input -> ViewModel
         emailTextField.rx.text
             .orEmpty
@@ -120,8 +120,7 @@ class LoginViewController: UIViewController, ViewType {
         viewModel.isLoginCompleted
             .emit(onNext: { [weak self] _ in
                 self?.showActivityIndicator(false)
-//                self?.switchToConversationVC()
-                print("isLoginCompleted", "Login Succes!!!")
+                self?.switchToConversationVC()
             })
             .disposed(by: disposeBag)
         
