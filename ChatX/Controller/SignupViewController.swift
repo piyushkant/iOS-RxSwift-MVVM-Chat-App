@@ -51,7 +51,7 @@ final class SignupViewController: UIViewController, ViewType {
         
     private let signUpButton: UIButton = AuthButton(title: "Sign Up", color: #colorLiteral(red: 0.244713217, green: 0.4361641705, blue: 0.7726119161, alpha: 1))
     
-    private let loginPageButton = SignupButton(firstText: "Already have an account? ", secondText: "Log In")
+    private let loginPageButton = BottomButton(firstText: "Already have an account? ", secondText: "Log In")
     
     private lazy var stackContents = [
         emailContainer,

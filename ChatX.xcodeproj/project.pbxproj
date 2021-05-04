@@ -12,7 +12,7 @@
 		4B0C484E26400C88002BD081 /* AuthButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0C484D26400C88002BD081 /* AuthButton.swift */; };
 		4B0C48502640240B002BD081 /* InputContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0C484F2640240B002BD081 /* InputContainerView.swift */; };
 		4B0C485326402CC0002BD081 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0C485226402CC0002BD081 /* UIViewController+Ext.swift */; };
-		4B0C485526402E1F002BD081 /* SignupButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0C485426402E1F002BD081 /* SignupButton.swift */; };
+		4B0C485526402E1F002BD081 /* BottomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0C485426402E1F002BD081 /* BottomButton.swift */; };
 		4B0C4857264034BD002BD081 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0C4856264034BD002BD081 /* SignupViewController.swift */; };
 		4B0C48592640393E002BD081 /* Reactive+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0C48582640393E002BD081 /* Reactive+Ext.swift */; };
 		4B0C485B2640F541002BD081 /* UIButton+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0C485A2640F541002BD081 /* UIButton+Ext.swift */; };
@@ -65,7 +65,7 @@
 		4B0C484D26400C88002BD081 /* AuthButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthButton.swift; sourceTree = "<group>"; };
 		4B0C484F2640240B002BD081 /* InputContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputContainerView.swift; sourceTree = "<group>"; };
 		4B0C485226402CC0002BD081 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
-		4B0C485426402E1F002BD081 /* SignupButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupButton.swift; sourceTree = "<group>"; };
+		4B0C485426402E1F002BD081 /* BottomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomButton.swift; sourceTree = "<group>"; };
 		4B0C4856264034BD002BD081 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		4B0C48582640393E002BD081 /* Reactive+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reactive+Ext.swift"; sourceTree = "<group>"; };
 		4B0C485A2640F541002BD081 /* UIButton+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Ext.swift"; sourceTree = "<group>"; };
@@ -154,7 +154,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		4B0C485126402CAF002BD081 /* Extensions */ = {
+		4B0C485126402CAF002BD081 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
 				4B0C485226402CC0002BD081 /* UIViewController+Ext.swift */,
@@ -162,7 +162,7 @@
 				4B0C485A2640F541002BD081 /* UIButton+Ext.swift */,
 				4B0C485C2640F576002BD081 /* UIColor+Ext.swift */,
 			);
-			path = Extensions;
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		4BFD0976263FB004004D43E2 = {
@@ -190,7 +190,7 @@
 		4BFD0981263FB004004D43E2 /* ChatX */ = {
 			isa = PBXGroup;
 			children = (
-				4B0C485126402CAF002BD081 /* Extensions */,
+				4B0C485126402CAF002BD081 /* Extension */,
 				4BFD09C1263FEC0D004D43E2 /* Service */,
 				4BFD09BC263FEAB4004D43E2 /* Base */,
 				4BFD09BB263FEA0F004D43E2 /* Utils */,
@@ -250,7 +250,7 @@
 				4B0C484B26400A33002BD081 /* CustomTextField.swift */,
 				4B0C484D26400C88002BD081 /* AuthButton.swift */,
 				4B0C484F2640240B002BD081 /* InputContainerView.swift */,
-				4B0C485426402E1F002BD081 /* SignupButton.swift */,
+				4B0C485426402E1F002BD081 /* BottomButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -564,7 +564,7 @@
 				4BFD09C7263FF144004D43E2 /* SignupViewModel.swift in Sources */,
 				4BFD0983263FB004004D43E2 /* AppDelegate.swift in Sources */,
 				4BFD09BE263FEB26004D43E2 /* ViewType.swift in Sources */,
-				4B0C485526402E1F002BD081 /* SignupButton.swift in Sources */,
+				4B0C485526402E1F002BD081 /* BottomButton.swift in Sources */,
 				4B0C4857264034BD002BD081 /* SignupViewController.swift in Sources */,
 				4BFD09CE263FF25C004D43E2 /* Conversation.swift in Sources */,
 				4B0C484C26400A33002BD081 /* CustomTextField.swift in Sources */,

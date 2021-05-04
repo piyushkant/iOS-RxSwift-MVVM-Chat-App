@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class SignupButton: UIButton {
+final class BottomButton: UIButton {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -26,10 +26,10 @@ final class SignupButton: UIButton {
     private func configure(firstText: String, secondText: String) {
         let attributedTitle = NSMutableAttributedString(string: firstText,
                                                         attributes: [.font: UIFont.systemFont(ofSize: 16),
-                                                                     .foregroundColor : UIColor.white])
+                                                                     .foregroundColor : UIColor(cgColor:#colorLiteral(red: 0, green: 0.7599403262, blue: 0.9988735318, alpha: 1))])
         attributedTitle.append(NSAttributedString(string: secondText,
                                                   attributes: [.font : UIFont.boldSystemFont(ofSize: 16),
-                                                               .foregroundColor : UIColor.white]))
+                                                               .foregroundColor : UIColor(cgColor:#colorLiteral(red: 0, green: 0.7599403262, blue: 0.9988735318, alpha: 1))]))
         setAttributedTitle(attributedTitle, for: .normal)
     }
 }
