@@ -31,7 +31,7 @@ final class ChatListViewController: UIViewController, ViewType {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        setupNavigationBar(with: "Messages", prefersLargeTitles: true)
+        setupNavigationBar(with: "Messages", prefersLargeTitles: false)
     }
     
     // MARK: - Initial Setup
@@ -66,11 +66,11 @@ final class ChatListViewController: UIViewController, ViewType {
         // UI Binding
         navigationItem.leftBarButtonItem?.rx.tap
             .subscribe(onNext: { [unowned self] in
-                //                let profileController = ProfileController.create(with: ProfileViewModel())
-                //                let navi = UINavigationController(rootViewController: profileController)
-                //                navi.modalPresentationStyle = .fullScreen
-                //                navi.modalTransitionStyle = .coverVertical
-                //                self.present(navi, animated: true)
+                let profileViewController = ProfileViewController.create(with: ProfileViewModel())
+                let nc = UINavigationController(rootViewController: profileViewController)
+                nc.modalPresentationStyle = .fullScreen
+                nc.modalTransitionStyle = .coverVertical
+                self.present(nc, animated: true)
             })
             .disposed(by: disposeBag)
         
