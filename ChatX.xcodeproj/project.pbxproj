@@ -25,6 +25,7 @@
 		4B0C487026412B71002BD081 /* FriendListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0C486F26412B71002BD081 /* FriendListViewModel.swift */; };
 		4B0C487226412B85002BD081 /* FriendListViewModelBindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0C487126412B85002BD081 /* FriendListViewModelBindable.swift */; };
 		4B7645FA264A850E00290E2E /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7645F9264A850E00290E2E /* UserCell.swift */; };
+		4B7645FC264ADD7200290E2E /* FakeAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7645FB264ADD7200290E2E /* FakeAPIService.swift */; };
 		4BEB39572641691A006FC9BB /* ChatViewModelBindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BEB39562641691A006FC9BB /* ChatViewModelBindable.swift */; };
 		4BEB395926416942006FC9BB /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BEB395826416942006FC9BB /* ChatViewModel.swift */; };
 		4BEB395B26416950006FC9BB /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BEB395A26416950006FC9BB /* ChatViewController.swift */; };
@@ -92,6 +93,7 @@
 		4B0C487126412B85002BD081 /* FriendListViewModelBindable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListViewModelBindable.swift; sourceTree = "<group>"; };
 		4B1A498DAEF82B5E0A9E4EE2 /* Pods-ChatX.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatX.release.xcconfig"; path = "Target Support Files/Pods-ChatX/Pods-ChatX.release.xcconfig"; sourceTree = "<group>"; };
 		4B7645F9264A850E00290E2E /* UserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
+		4B7645FB264ADD7200290E2E /* FakeAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeAPIService.swift; sourceTree = "<group>"; };
 		4BEB39562641691A006FC9BB /* ChatViewModelBindable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModelBindable.swift; sourceTree = "<group>"; };
 		4BEB395826416942006FC9BB /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
 		4BEB395A26416950006FC9BB /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
@@ -258,6 +260,7 @@
 			children = (
 				4BFD0999263FB005004D43E2 /* ChatXTests.swift */,
 				4BFD099B263FB005004D43E2 /* Info.plist */,
+				4B7645FB264ADD7200290E2E /* FakeAPIService.swift */,
 			);
 			path = ChatXTests;
 			sourceTree = "<group>";
@@ -393,6 +396,7 @@
 				4BFD0991263FB005004D43E2 /* Sources */,
 				4BFD0992263FB005004D43E2 /* Frameworks */,
 				4BFD0993263FB005004D43E2 /* Resources */,
+				C1DEE768398EBB9CADBC458E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -573,6 +577,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		C1DEE768398EBB9CADBC458E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ChatXTests/Pods-ChatXTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ChatXTests/Pods-ChatXTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ChatXTests/Pods-ChatXTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		C3D8D54D325641230B9E4AFF /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -645,6 +666,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4BFD099A263FB005004D43E2 /* ChatXTests.swift in Sources */,
+				4B7645FC264ADD7200290E2E /* FakeAPIService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
