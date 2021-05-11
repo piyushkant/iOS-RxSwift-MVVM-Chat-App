@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
@@ -14,12 +15,32 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
+        isLoggedIn() ? self.openChatListVC() : self.openLoginVC(windowScene: windowScene)
+    }
+    
+    func openLoginVC(windowScene: UIWindowScene) {
         window = UIWindow(windowScene: windowScene)
-//        let loginViewController = LoginViewController.create(with: LoginViewModel())
-        //                let loginViewController = SignupViewController.create(with: SignupViewModel())
-                let loginViewController = ChatListViewController.create(with: ChatListViewModel())
+        let loginViewController = LoginViewController.create(with: LoginViewModel())
         window?.rootViewController = UINavigationController(rootViewController: loginViewController)
         window?.makeKeyAndVisible()
+    }
+    
+    func openChatListVC() {
+        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
+            let window = UIWindow(windowScene: windowScene)
+            window.backgroundColor = .systemBackground
+            let chatListVC = ChatListViewController.create(with: ChatListViewModel())
+            let rootVC = UINavigationController(rootViewController: chatListVC)
+            window.rootViewController = rootVC
+            
+            let sceneDelegate = windowScene.delegate as? SceneDelegate
+            window.makeKeyAndVisible()
+            sceneDelegate?.window = window
+        }
+    }
+    
+    func isLoggedIn() -> Bool {
+        return Auth.auth().currentUser != nil
     }
 }
 

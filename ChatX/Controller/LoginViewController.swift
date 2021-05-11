@@ -120,7 +120,7 @@ class LoginViewController: UIViewController, ViewType {
         viewModel.isLoginCompleted
             .emit(onNext: { [weak self] _ in
                 self?.showActivityIndicator(false)
-                self?.switchToConversationVC()
+                self?.switchToChatListVC()
             })
             .disposed(by: disposeBag)
         

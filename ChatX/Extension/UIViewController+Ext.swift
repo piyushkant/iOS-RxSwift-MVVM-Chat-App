@@ -66,7 +66,7 @@ extension UIViewController {
         }
     }
     
-    func switchToConversationVC() {
+    func switchToChatListVC() {
         if #available(iOS 13.0, *) {
             if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
                 let window = UIWindow(windowScene: windowScene)
