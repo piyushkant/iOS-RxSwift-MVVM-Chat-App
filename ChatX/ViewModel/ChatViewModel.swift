@@ -42,7 +42,7 @@ struct ChatViewModel: ChatViewModelBindable {
         didNewMessageIncome
             .skip(1)
             .subscribe(onNext: { _ in
-                NotificationCenter.default.post(name: Notifications.didFinishFetchMessage, object: nil)
+                NotificationCenter.default.post(name: Notification.Name("didFinishUploadMessage"), object: nil)
             })
             .disposed(by: disposeBag)
         

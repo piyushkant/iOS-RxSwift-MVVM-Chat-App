@@ -139,7 +139,7 @@ final class ChatViewController: UIViewController, ViewType {
         
         
         // Notification Binding
-        NotificationCenter.default.rx.notification(Notifications.didFinishFetchMessage)
+        NotificationCenter.default.rx.notification(Notification.Name("didFinishUploadMessage"))
             .subscribe(onNext:{ [weak self] (noti) in
                 guard let self = self else { return }
                 self.collectionView.layoutIfNeeded()
