@@ -14,7 +14,7 @@ final class SignupViewController: UIViewController, ViewType {
     // MARK: - Properties
     let addPhotoButton: UIButton = {
         let btn = UIButton(type: .system)
-        btn.setImage(#imageLiteral(resourceName: "add7"), for: .normal)
+        btn.setImage(#imageLiteral(resourceName: "AddPhoto"), for: .normal)
         btn.tintColor = UIColor(cgColor:#colorLiteral(red: 0, green: 0.7599403262, blue: 0.9988735318, alpha: 1))
         btn.contentMode = .scaleAspectFill
         btn.clipsToBounds = true

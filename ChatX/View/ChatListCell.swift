@@ -80,7 +80,7 @@ final class ChatListCell: UITableViewCell {
         messageLabel.text = conversation.recentMessage.text
         let date = conversation.recentMessage.timestamp.dateValue()
         let formatter = DateFormatter()
-        formatter.dateFormat = "MM.dd hh:mm a"
+        formatter.dateFormat = "MM/dd HH:mm"
         timeStampLabel.text = formatter.string(from: date)
     }
 }

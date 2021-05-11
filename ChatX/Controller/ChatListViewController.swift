@@ -11,6 +11,8 @@ import RxCocoa
 
 final class ChatListViewController: UIViewController, ViewType {
     
+    let searchController = UISearchController()
+    
     // MARK: - Properties
     private let tableView = UITableView()
     private let addMessageButton: UIButton = {
@@ -38,6 +40,7 @@ final class ChatListViewController: UIViewController, ViewType {
     func setupUI() {
         view.backgroundColor = .white
         setupTableView()
+        setupSearchBar()
         setupRightBarButton()
         setupAddMessageButton()
     }
@@ -63,6 +66,13 @@ final class ChatListViewController: UIViewController, ViewType {
         tableView.frame = view.frame
         tableView.tableFooterView = UIView()
         tableView.register(ChatListCell.self, forCellReuseIdentifier: ChatListCell.reuseIdentifier)
+    }
+    
+    private func setupSearchBar() {
+        searchController.searchBar.placeholder = "Search"
+        searchController.searchBar.tintColor = .white
+        searchController.obscuresBackgroundDuringPresentation = false
+        navigationItem.searchController = searchController
     }
     
     // MARK: - Binding
@@ -96,6 +106,15 @@ final class ChatListViewController: UIViewController, ViewType {
             .subscribe(onNext: { [unowned self] in
                 self.tableView.deselectRow(at: $0, animated: true)
             })
+            .disposed(by: disposeBag)
+        
+        searchController.searchBar.rx.cancelButtonClicked
+            .bind(to: viewModel.searchCancelButtonTapped)
+            .disposed(by: disposeBag)
+        
+        searchController.searchBar.rx.text
+            .orEmpty
+            .bind(to: viewModel.filterKey)
             .disposed(by: disposeBag)
         
         
