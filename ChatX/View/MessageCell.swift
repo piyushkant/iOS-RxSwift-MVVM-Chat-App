@@ -20,7 +20,7 @@ final class MessageCell: UICollectionViewCell {
     
     private let timeStampLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 12)
+        label.font = UIFont.systemFont(ofSize: 10)
         label.textColor = .darkGray
         return label
     }()
@@ -122,7 +122,7 @@ final class MessageCell: UICollectionViewCell {
         
         let date = message.timestamp.dateValue()
         let formatter = DateFormatter()
-        formatter.dateFormat = "MM.dd hh:mm a"
+        formatter.dateFormat = "MM/dd hh:mm a"
         timeStampLabel.text = formatter.string(from: date)
         
         textLeadingConst.isActive = viewModel.leadingAnchorActive
