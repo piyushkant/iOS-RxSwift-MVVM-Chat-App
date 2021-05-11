@@ -108,6 +108,11 @@ final class ChatListViewController: UIViewController, ViewType {
             })
             .disposed(by: disposeBag)
         
+        searchController.searchBar.rx.text
+            .orEmpty
+            .bind(to: viewModel.filterKey)
+            .disposed(by: disposeBag)
+        
         
         // ViewModel -> Output
         viewModel.conversations
