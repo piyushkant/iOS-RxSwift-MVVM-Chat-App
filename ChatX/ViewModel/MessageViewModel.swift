@@ -17,7 +17,7 @@ struct MessageViewModel {
     }
     
     var messageTextColor: UIColor {
-        return message.isFromCurrentUser ? .darkGray : .white
+        return message.isFromCurrentUser ? .black : .white
     }
     
     var trailingingAnchorActive: Bool {
