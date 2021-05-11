@@ -17,7 +17,7 @@ class LoginViewController: UIViewController, ViewType {
     
     private let appLogoImageView: UIImageView = {
         let iv = UIImageView()
-        iv.image = UIImage(named: Images.appLogo)
+        iv.image = UIImage(named: "AppLogo")
         iv.layer.cornerRadius = 3
         iv.clipsToBounds = true
         return iv
