@@ -31,15 +31,19 @@ final class ChatListViewController: UIViewController, ViewType {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        setupNavigationBar(with: "Messages", prefersLargeTitles: false)
+        setupNavigationBar(with: "ChatX", prefersLargeTitles: false)
     }
     
     // MARK: - Initial Setup
     func setupUI() {
         view.backgroundColor = .white
         setupTableView()
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "person.circle.fill"), style: .plain, target: nil, action: nil)
+        setupRightBarButton()
         setupAddMessageButton()
+    }
+    
+    private func setupRightBarButton() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "Logout"), style: .plain, target: nil, action: nil)
     }
     
     private func setupAddMessageButton() {
@@ -63,14 +67,11 @@ final class ChatListViewController: UIViewController, ViewType {
     
     // MARK: - Binding
     func bind() {
+        
         // UI Binding
-        navigationItem.leftBarButtonItem?.rx.tap
+        navigationItem.rightBarButtonItem?.rx.tap
             .subscribe(onNext: { [unowned self] in
-                let profileViewController = ProfileViewController.create(with: ProfileViewModel())
-                let nc = UINavigationController(rootViewController: profileViewController)
-                nc.modalPresentationStyle = .fullScreen
-                nc.modalTransitionStyle = .coverVertical
-                self.present(nc, animated: true)
+                self.logoutAlert()
             })
             .disposed(by: disposeBag)
         
@@ -116,5 +117,23 @@ final class ChatListViewController: UIViewController, ViewType {
                 self?.navigationController?.pushViewController(chatVC, animated: true)
             })
             .disposed(by: disposeBag)
+    }
+    
+    private func logoutAlert() {
+        let alert = UIAlertController(title: "", message: NSLocalizedString("Are you sure you want to log out?", comment: ""), preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Log Out", comment: ""), style: .destructive, handler: { (action) in
+            self.logoutCurrentUser { (error) in
+                if let err = error {
+                    print("Failed to logged out:", err)
+                    return
+                }
+                print("Successfully logged out this user")
+                self.switchToLoginVC()
+            }
+        }))
+        
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: UIAlertAction.Style.cancel, handler: nil))
+        
+        self.present(alert, animated: true, completion: nil)
     }
 }

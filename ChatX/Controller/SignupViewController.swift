@@ -160,7 +160,7 @@ final class SignupViewController: UIViewController, ViewType {
         viewModel.isRegistered
             .filter{ $0 == true }
             .emit(onNext: { [weak self] _ in
-                self?.switchToConversationVC()
+                self?.switchToChatListVC()
             })
             .disposed(by: disposeBag)
 

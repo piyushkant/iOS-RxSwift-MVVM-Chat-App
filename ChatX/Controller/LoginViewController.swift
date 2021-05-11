@@ -17,7 +17,7 @@ class LoginViewController: UIViewController, ViewType {
     
     private let appLogoImageView: UIImageView = {
         let iv = UIImageView()
-        iv.image = UIImage(named: Images.appLogo)
+        iv.image = UIImage(named: "AppLogo")
         iv.layer.cornerRadius = 3
         iv.clipsToBounds = true
         return iv
@@ -120,7 +120,7 @@ class LoginViewController: UIViewController, ViewType {
         viewModel.isLoginCompleted
             .emit(onNext: { [weak self] _ in
                 self?.showActivityIndicator(false)
-                self?.switchToConversationVC()
+                self?.switchToChatListVC()
             })
             .disposed(by: disposeBag)
         
