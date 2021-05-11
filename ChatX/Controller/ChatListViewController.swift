@@ -108,6 +108,10 @@ final class ChatListViewController: UIViewController, ViewType {
             })
             .disposed(by: disposeBag)
         
+        searchController.searchBar.rx.cancelButtonClicked
+            .bind(to: viewModel.searchCancelButtonTapped)
+            .disposed(by: disposeBag)
+        
         searchController.searchBar.rx.text
             .orEmpty
             .bind(to: viewModel.filterKey)

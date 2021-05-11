@@ -12,6 +12,7 @@ import RxCocoa
 struct ChatListViewModel: ChatListViewModelBindable {
     //Input
     let filterKey = PublishRelay<String>()
+    let searchCancelButtonTapped = PublishRelay<Void>()
     
     //Output
     let conversations = BehaviorRelay<[Conversation]>(value: [])
@@ -32,6 +33,18 @@ struct ChatListViewModel: ChatListViewModelBindable {
         
         fetchedConversations
             .bind(to: baseCoversationsForFiltering)
+            .disposed(by: disposeBag)
+        
+        let reFetchedConversations = Observable
+            .merge(
+                searchCancelButtonTapped.asObservable()
+            )
+            .flatMapLatest(service.fetchConversations)
+            .catchAndReturn([])
+            .share()
+        
+        reFetchedConversations
+            .bind(to: conversations)
             .disposed(by: disposeBag)
         
         // Keyword for searching
