@@ -17,6 +17,6 @@ protocol LoginViewModelBindable: ViewModelType {
     
     // Output
     var isLoginCompleted: Signal<Bool> { get }
-    var isValidForm: Driver<Bool> { get }
+    var isFormValid: Driver<Bool> { get }
 }
 

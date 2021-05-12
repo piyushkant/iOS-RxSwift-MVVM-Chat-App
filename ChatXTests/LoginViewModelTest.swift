@@ -25,38 +25,38 @@ class LoginViewModelTest : XCTestCase {
     }
     
     func testFormIsValidWhenEmailIsValidAndPasswordLengthIsMoreThanSix() throws {
-        let isValidFormObservable = viewModel.isValidForm.asObservable().subscribe(on: scheduler)
+        let isFormValidObservable = viewModel.isFormValid.asObservable().subscribe(on: scheduler)
         
         viewModel.email.accept("test@mail.com")
         viewModel.password.accept("password")
         
-        XCTAssertEqual(try isValidFormObservable.toBlocking(timeout: 1.0).first(), true)
+        XCTAssertEqual(try isFormValidObservable.toBlocking(timeout: 1.0).first(), true)
     }
     
     func testFormIsInValidWhenEmailIsValidAndPasswordLengthIsLessThanSix() throws {
-        let isValidFormObservable = viewModel.isValidForm.asObservable().subscribe(on: scheduler)
+        let isFormValidObservable = viewModel.isFormValid.asObservable().subscribe(on: scheduler)
         
         viewModel.email.accept("test@mail.com")
         viewModel.password.accept("pass")
         
-        XCTAssertEqual(try isValidFormObservable.toBlocking(timeout: 1.0).first(), false)
+        XCTAssertEqual(try isFormValidObservable.toBlocking(timeout: 1.0).first(), false)
     }
     
     func testFormIsInValidWhenEmailIsInValidAndPasswordLengthIsMoreThanSix() throws {
-        let isValidFormObservable = viewModel.isValidForm.asObservable().subscribe(on: scheduler)
+        let isFormValidObservable = viewModel.isFormValid.asObservable().subscribe(on: scheduler)
 
         viewModel.email.accept("testmail.com")
         viewModel.password.accept("password")
 
-        XCTAssertEqual(try isValidFormObservable.toBlocking(timeout: 1.0).first(), false)
+        XCTAssertEqual(try isFormValidObservable.toBlocking(timeout: 1.0).first(), false)
     }
 
     func testFormIsValidWhenEmailIsInValidAndPasswordLengthIsLessThanSix() throws {
-        let isValidFormObservable = viewModel.isValidForm.asObservable().subscribe(on: scheduler)
+        let isFormValidObservable = viewModel.isFormValid.asObservable().subscribe(on: scheduler)
 
         viewModel.email.accept("testmail.com")
         viewModel.password.accept("pass")
 
-        XCTAssertEqual(try isValidFormObservable.toBlocking(timeout: 1.0).first(), false)
+        XCTAssertEqual(try isFormValidObservable.toBlocking(timeout: 1.0).first(), false)
     }
 }

@@ -21,7 +21,7 @@ struct FriendListViewModel: FriendListViewModelBindable {
     
     var disposeBag = DisposeBag()
     
-    init(service: APIService = .shared) {
+    init(service: APIServiceProtocol = APIService.shared) {
         
         // Proxy
         let onRefreshPulled = PublishRelay<Void>()

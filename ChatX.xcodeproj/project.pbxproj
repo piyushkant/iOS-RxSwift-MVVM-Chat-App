@@ -24,8 +24,11 @@
 		4B0C487026412B71002BD081 /* FriendListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0C486F26412B71002BD081 /* FriendListViewModel.swift */; };
 		4B0C487226412B85002BD081 /* FriendListViewModelBindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0C487126412B85002BD081 /* FriendListViewModelBindable.swift */; };
 		4B7645FA264A850E00290E2E /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7645F9264A850E00290E2E /* UserCell.swift */; };
-		4B7645FC264ADD7200290E2E /* FakeAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7645FB264ADD7200290E2E /* FakeAPIService.swift */; };
 		4B764605264BC97900290E2E /* LoginViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B764604264BC97900290E2E /* LoginViewModelTest.swift */; };
+		4B764607264BF12F00290E2E /* SignupViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B764606264BF12F00290E2E /* SignupViewModelTest.swift */; };
+		4B764609264C136500290E2E /* FriendListViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B764608264C136500290E2E /* FriendListViewModelTest.swift */; };
+		4B76460B264C181B00290E2E /* APIServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B76460A264C181B00290E2E /* APIServiceProtocol.swift */; };
+		4B76460D264C192D00290E2E /* FakeAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B76460C264C192D00290E2E /* FakeAPIService.swift */; };
 		4BEB39572641691A006FC9BB /* ChatViewModelBindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BEB39562641691A006FC9BB /* ChatViewModelBindable.swift */; };
 		4BEB395926416942006FC9BB /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BEB395826416942006FC9BB /* ChatViewModel.swift */; };
 		4BEB395B26416950006FC9BB /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BEB395A26416950006FC9BB /* ChatViewController.swift */; };
@@ -38,7 +41,6 @@
 		4BFD098A263FB004004D43E2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BFD0988263FB004004D43E2 /* Main.storyboard */; };
 		4BFD098C263FB005004D43E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4BFD098B263FB005004D43E2 /* Assets.xcassets */; };
 		4BFD098F263FB005004D43E2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BFD098D263FB005004D43E2 /* LaunchScreen.storyboard */; };
-		4BFD099A263FB005004D43E2 /* ChatXTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFD0999263FB005004D43E2 /* ChatXTests.swift */; };
 		4BFD09B3263FB5D9004D43E2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4BFD09B2263FB5D9004D43E2 /* GoogleService-Info.plist */; };
 		4BFD09BE263FEB26004D43E2 /* ViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFD09BD263FEB26004D43E2 /* ViewType.swift */; };
 		4BFD09C0263FEB57004D43E2 /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFD09BF263FEB57004D43E2 /* ViewModelType.swift */; };
@@ -85,8 +87,11 @@
 		4B0C487126412B85002BD081 /* FriendListViewModelBindable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListViewModelBindable.swift; sourceTree = "<group>"; };
 		4B1A498DAEF82B5E0A9E4EE2 /* Pods-ChatX.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatX.release.xcconfig"; path = "Target Support Files/Pods-ChatX/Pods-ChatX.release.xcconfig"; sourceTree = "<group>"; };
 		4B7645F9264A850E00290E2E /* UserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
-		4B7645FB264ADD7200290E2E /* FakeAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeAPIService.swift; sourceTree = "<group>"; };
 		4B764604264BC97900290E2E /* LoginViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModelTest.swift; sourceTree = "<group>"; };
+		4B764606264BF12F00290E2E /* SignupViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewModelTest.swift; sourceTree = "<group>"; };
+		4B764608264C136500290E2E /* FriendListViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListViewModelTest.swift; sourceTree = "<group>"; };
+		4B76460A264C181B00290E2E /* APIServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceProtocol.swift; sourceTree = "<group>"; };
+		4B76460C264C192D00290E2E /* FakeAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeAPIService.swift; sourceTree = "<group>"; };
 		4BEB39562641691A006FC9BB /* ChatViewModelBindable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModelBindable.swift; sourceTree = "<group>"; };
 		4BEB395826416942006FC9BB /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
 		4BEB395A26416950006FC9BB /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
@@ -102,7 +107,6 @@
 		4BFD098E263FB005004D43E2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4BFD0990263FB005004D43E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4BFD0995263FB005004D43E2 /* ChatXTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChatXTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		4BFD0999263FB005004D43E2 /* ChatXTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatXTests.swift; sourceTree = "<group>"; };
 		4BFD099B263FB005004D43E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4BFD09A4263FB005004D43E2 /* ChatXUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatXUITests.swift; sourceTree = "<group>"; };
 		4BFD09A6263FB005004D43E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -241,10 +245,11 @@
 		4BFD0998263FB005004D43E2 /* ChatXTests */ = {
 			isa = PBXGroup;
 			children = (
-				4BFD0999263FB005004D43E2 /* ChatXTests.swift */,
 				4BFD099B263FB005004D43E2 /* Info.plist */,
-				4B7645FB264ADD7200290E2E /* FakeAPIService.swift */,
 				4B764604264BC97900290E2E /* LoginViewModelTest.swift */,
+				4B764606264BF12F00290E2E /* SignupViewModelTest.swift */,
+				4B764608264C136500290E2E /* FriendListViewModelTest.swift */,
+				4B76460C264C192D00290E2E /* FakeAPIService.swift */,
 			);
 			path = ChatXTests;
 			sourceTree = "<group>";
@@ -346,6 +351,7 @@
 			children = (
 				4BFD09C2263FEC3E004D43E2 /* AuthService.swift */,
 				4B0C486926412394002BD081 /* APIService.swift */,
+				4B76460A264C181B00290E2E /* APIServiceProtocol.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -536,6 +542,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B76460B264C181B00290E2E /* APIServiceProtocol.swift in Sources */,
 				4B0C48592640393E002BD081 /* Reactive+Ext.swift in Sources */,
 				4BEB395F26416E9D006FC9BB /* MessageCell.swift in Sources */,
 				4B0C486A26412394002BD081 /* APIService.swift in Sources */,
@@ -578,9 +585,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B764609264C136500290E2E /* FriendListViewModelTest.swift in Sources */,
+				4B76460D264C192D00290E2E /* FakeAPIService.swift in Sources */,
+				4B764607264BF12F00290E2E /* SignupViewModelTest.swift in Sources */,
 				4B764605264BC97900290E2E /* LoginViewModelTest.swift in Sources */,
-				4BFD099A263FB005004D43E2 /* ChatXTests.swift in Sources */,
-				4B7645FC264ADD7200290E2E /* FakeAPIService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

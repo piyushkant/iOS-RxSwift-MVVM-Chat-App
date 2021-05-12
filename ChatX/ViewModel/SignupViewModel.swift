@@ -14,21 +14,22 @@ typealias UserValues = (profileImage: UIImage?, email: String, fullName: String,
 
 struct SignupViewModel: SignupViewModelBindable {
     
-    // MARK: - Properties
+    // MARK: - Input
     let profileImage = PublishRelay<UIImage?>()
     let email = PublishRelay<String>()
     let fullName = PublishRelay<String>()
     let userName = PublishRelay<String>()
     let password = PublishRelay<String>()
+    
     let signupButtonTapped = PublishRelay<Void>()
     
+    // MARK: - Output
     let isRegistering: Driver<Bool>
     let isRegistered: Signal<Bool>
     let isFormValid: Driver<Bool>
     
     var disposeBag = DisposeBag()
     
-    // MARK: - Initializer
     init(service: AuthService = AuthService()) {
         
         let onRegistering = PublishRelay<Bool>()

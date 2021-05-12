@@ -19,7 +19,7 @@ struct ChatListViewModel: ChatListViewModelBindable {
     
     var disposeBag = DisposeBag()
     
-    init(service: APIService = .shared) {
+    init(service: APIServiceProtocol = APIService.shared) {
         let baseCoversationsForFiltering = PublishRelay<[Conversation]>()
         
         let fetchedConversations = service.fetchConversations()

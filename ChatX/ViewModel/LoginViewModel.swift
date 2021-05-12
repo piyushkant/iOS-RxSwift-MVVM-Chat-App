@@ -12,15 +12,17 @@ import Firebase
 
 struct LoginViewModel: LoginViewModelBindable {
     
+    // Mark: Input
     let email = BehaviorRelay<String>(value: "")
     let password = BehaviorRelay<String>(value: "")
     let loginButtonTapped = PublishRelay<Void>()
     
+    // Mark: Output
     let isLoginCompleted: Signal<Bool>
-    let isValidForm: Driver<Bool>
+    let isFormValid: Driver<Bool>
     
     init(service: AuthService = AuthService()) {
-        self.isValidForm = Observable
+        self.isFormValid = Observable
             .combineLatest(
                 email,
                 password
