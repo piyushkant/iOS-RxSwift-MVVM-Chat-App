@@ -12,8 +12,8 @@ import Firebase
 
 struct LoginViewModel: LoginViewModelBindable {
     
-    let email = BehaviorSubject<String>(value: "")
-    let password = BehaviorSubject<String>(value: "")
+    let email = BehaviorRelay<String>(value: "")
+    let password = BehaviorRelay<String>(value: "")
     let loginButtonTapped = PublishRelay<Void>()
     
     let isLoginCompleted: Signal<Bool>
