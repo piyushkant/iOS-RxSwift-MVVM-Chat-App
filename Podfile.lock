@@ -373,6 +373,8 @@ PODS:
   - RxRelay (6.1.0):
     - RxSwift (= 6.1.0)
   - RxSwift (6.1.0)
+  - RxTest (6.1.0):
+    - RxSwift (= 6.1.0)
   - SDWebImage (5.10.4):
     - SDWebImage/Core (= 5.10.4)
   - SDWebImage/Core (5.10.4)
@@ -387,9 +389,11 @@ DEPENDENCIES:
   - Firebase/Messaging
   - Firebase/Storage
   - JGProgressHUD
+  - RxBlocking
   - RxCocoa
   - RxNimble
   - RxSwift
+  - RxTest
   - SDWebImage
   - SnapKit
 
@@ -423,6 +427,7 @@ SPEC REPOS:
     - RxNimble
     - RxRelay
     - RxSwift
+    - RxTest
     - SDWebImage
     - SnapKit
 
@@ -455,9 +460,10 @@ SPEC CHECKSUMS:
   RxNimble: 80e69e545cd0f54fe7cc747eafe9e14baeca68ca
   RxRelay: 483e1a19fad961b41f0b0c0bee506f46c1ae14fe
   RxSwift: a834e5c538e89eca0cae86f403f4fbf0336786ce
+  RxTest: 9d26616eaff4a7e75f4ecae9b2c24840f2e8218d
   SDWebImage: c666b97e1fa9c64b4909816a903322018f0a9c84
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
 
-PODFILE CHECKSUM: b828d395e70230860a4d417b1b6fe735fff047c7
+PODFILE CHECKSUM: 3f9f1a60bcdb9490a171d05bbd4d2f15f8af5b92
 
 COCOAPODS: 1.10.1

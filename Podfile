@@ -21,10 +21,11 @@ target 'ChatX' do
   target 'ChatXTests' do
     inherit! :search_paths
     pod 'RxNimble'
+    pod 'RxTest'
+    pod 'RxBlocking'
   end
 
   target 'ChatXUITests' do
-    # Pods for testing
   end
 
 end
