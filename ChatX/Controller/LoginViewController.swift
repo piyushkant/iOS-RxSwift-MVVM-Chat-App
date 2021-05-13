@@ -118,9 +118,16 @@ class LoginViewController: UIViewController, ViewType {
             .disposed(by: disposeBag)
         
         viewModel.isLoginCompleted
-            .emit(onNext: { [weak self] _ in
+            .emit(onNext: { [weak self] result in
                 self?.showActivityIndicator(false)
-                self?.switchToChatListVC()
+                
+                switch result {
+                case .success:
+                    self?.switchToChatListVC()
+                case .failure(let error):
+                    print(error.description)
+                    self?.showServerAlert(title: "Server Error", meessage: error.description)
+                }
             })
             .disposed(by: disposeBag)
         

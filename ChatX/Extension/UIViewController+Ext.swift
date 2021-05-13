@@ -134,4 +134,10 @@ extension UIViewController {
         return statusBarHeight +
             (self.navigationController?.navigationBar.frame.height ?? 0.0)
     }
+    
+    func showServerAlert(title: String, meessage: String) {
+        let alert = UIAlertController(title: title, message: NSLocalizedString(meessage, comment: ""), preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
 }

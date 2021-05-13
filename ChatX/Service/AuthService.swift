@@ -11,19 +11,24 @@ import RxCocoa
 import Firebase
 import FirebaseFirestore
 
+public enum LoginResult {
+    case success
+    case failure (String)
+}
+
 final class AuthService {
     
     init() { }
     
     var disposeBag = DisposeBag()
     
-    func login(email: String, password: String) -> Observable<Bool> {
+    func login(email: String, password: String) -> Observable<LoginResult> {
         Observable.create {(observer) -> Disposable in
             Auth.auth().signIn(withEmail: email, password: password) { (_, error) in
                 if let error = error {
-                    observer.onError(error)
+                    observer.onNext(.failure(error.localizedDescription))
                 } else {
-                    observer.onNext(true)
+                    observer.onNext(.success)
                 }
             }
             
@@ -33,17 +38,22 @@ final class AuthService {
         }
     }
     
-    func signup(values: UserValues) -> Observable<Bool> {
+    func signup(values: UserValues) -> Observable<LoginResult> {
         Observable.create { (observer) -> Disposable in
             Auth.auth().createUser(withEmail: values.email, password: values.password) { (result, error) in
                 if let error = error {
                     print("failed to create User: ", error)
-                    observer.onNext(false)
+                    observer.onNext(.failure(error.localizedDescription))
                     return
                 }
                 self.saveImageToFirebase(values: values)
                     .subscribe(onNext: {
-                        observer.onNext($0)
+                        if $0 {
+                            observer.onNext(.success)
+                        } else {
+                            observer.onNext(.failure("Server error"))
+                        }
+                        
                     })
                     .disposed(by: self.disposeBag)
             }

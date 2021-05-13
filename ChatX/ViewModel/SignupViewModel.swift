@@ -25,7 +25,7 @@ struct SignupViewModel: SignupViewModelBindable {
     
     // MARK: - Output
     let isRegistering: Driver<Bool>
-    let isRegistered: Signal<Bool>
+    let isRegistered: Signal<LoginResult>
     let isFormValid: Driver<Bool>
     
     var disposeBag = DisposeBag()
@@ -34,8 +34,8 @@ struct SignupViewModel: SignupViewModelBindable {
         
         let onRegistering = PublishRelay<Bool>()
         isRegistering = onRegistering.asDriver(onErrorJustReturn: false)
-        let onRegistered = PublishRelay<Bool>()
-        isRegistered = onRegistered.asSignal(onErrorJustReturn: false)
+        let onRegistered = PublishRelay<LoginResult>()
+        isRegistered = onRegistered.asSignal(onErrorJustReturn: .failure("Server error"))
         
         let registrationValues = Observable
             .combineLatest(

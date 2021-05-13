@@ -20,6 +20,6 @@ protocol SignupViewModelBindable: ViewModelType {
     
     // Output
     var isRegistering: Driver<Bool> { get }
-    var isRegistered: Signal<Bool> { get }
+    var isRegistered: Signal<LoginResult> { get }
     var isFormValid: Driver<Bool> { get }
 }
