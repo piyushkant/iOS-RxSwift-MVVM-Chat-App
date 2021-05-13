@@ -8,6 +8,8 @@
 import XCTest
 import RxSwift
 import RxBlocking
+import RxNimble
+import Nimble
 
 @testable import ChatX
 
@@ -42,7 +44,7 @@ class FriendListViewModelTest : XCTestCase {
         XCTAssertEqual(fetchedUser1.username, "fakeUser1_username")
         XCTAssertEqual(fetchedUser1.profileImageUrl, "fakeUser1_profileImageURL")
         XCTAssertEqual(fetchedUser1.uid, "fakeUser1_uid")
-     
+        
         let fetchedUser2 = fetchedUsers![1]
         XCTAssertEqual(fetchedUser2.email, "fakeUser2_email")
         XCTAssertEqual(fetchedUser2.fullname, "fakeUser2_fullname")
