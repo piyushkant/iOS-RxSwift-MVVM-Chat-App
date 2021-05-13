@@ -5,7 +5,6 @@
 //  Created by Piyush Kant on 2021/05/12.
 //
 
-import UIKit
 import RxSwift
 
 @testable import ChatX

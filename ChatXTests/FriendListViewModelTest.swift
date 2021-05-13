@@ -7,8 +7,6 @@
 
 import XCTest
 import RxSwift
-import RxCocoa
-import RxTest
 import RxBlocking
 
 @testable import ChatX

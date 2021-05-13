@@ -25,7 +25,6 @@
 		4B0C487226412B85002BD081 /* FriendListViewModelBindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0C487126412B85002BD081 /* FriendListViewModelBindable.swift */; };
 		4B7645FA264A850E00290E2E /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7645F9264A850E00290E2E /* UserCell.swift */; };
 		4B764605264BC97900290E2E /* LoginViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B764604264BC97900290E2E /* LoginViewModelTest.swift */; };
-		4B764607264BF12F00290E2E /* SignupViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B764606264BF12F00290E2E /* SignupViewModelTest.swift */; };
 		4B764609264C136500290E2E /* FriendListViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B764608264C136500290E2E /* FriendListViewModelTest.swift */; };
 		4B76460B264C181B00290E2E /* APIServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B76460A264C181B00290E2E /* APIServiceProtocol.swift */; };
 		4B76460D264C192D00290E2E /* FakeAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B76460C264C192D00290E2E /* FakeAPIService.swift */; };
@@ -90,7 +89,6 @@
 		4B1A498DAEF82B5E0A9E4EE2 /* Pods-ChatX.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatX.release.xcconfig"; path = "Target Support Files/Pods-ChatX/Pods-ChatX.release.xcconfig"; sourceTree = "<group>"; };
 		4B7645F9264A850E00290E2E /* UserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		4B764604264BC97900290E2E /* LoginViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModelTest.swift; sourceTree = "<group>"; };
-		4B764606264BF12F00290E2E /* SignupViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewModelTest.swift; sourceTree = "<group>"; };
 		4B764608264C136500290E2E /* FriendListViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListViewModelTest.swift; sourceTree = "<group>"; };
 		4B76460A264C181B00290E2E /* APIServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceProtocol.swift; sourceTree = "<group>"; };
 		4B76460C264C192D00290E2E /* FakeAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeAPIService.swift; sourceTree = "<group>"; };
@@ -248,7 +246,6 @@
 			children = (
 				4BFD099B263FB005004D43E2 /* Info.plist */,
 				4B764604264BC97900290E2E /* LoginViewModelTest.swift */,
-				4B764606264BF12F00290E2E /* SignupViewModelTest.swift */,
 				4B764608264C136500290E2E /* FriendListViewModelTest.swift */,
 				4B76460C264C192D00290E2E /* FakeAPIService.swift */,
 				4B76460E264CBBE700290E2E /* ChatListViewModelTest.swift */,
@@ -582,7 +579,6 @@
 				4B764611264CBDE800290E2E /* ChatViewModelTest.swift in Sources */,
 				4B764609264C136500290E2E /* FriendListViewModelTest.swift in Sources */,
 				4B76460D264C192D00290E2E /* FakeAPIService.swift in Sources */,
-				4B764607264BF12F00290E2E /* SignupViewModelTest.swift in Sources */,
 				4B764605264BC97900290E2E /* LoginViewModelTest.swift in Sources */,
 				4B76460F264CBBE700290E2E /* ChatListViewModelTest.swift in Sources */,
 			);
