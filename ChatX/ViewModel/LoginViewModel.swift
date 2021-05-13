@@ -18,7 +18,7 @@ struct LoginViewModel: LoginViewModelBindable {
     let loginButtonTapped = PublishRelay<Void>()
     
     // Mark: Output
-    let isLoginCompleted: Signal<Bool>
+    let isLoginCompleted: Signal<LoginResult>
     let isFormValid: Driver<Bool>
     
     init(service: AuthService = AuthService()) {
@@ -40,6 +40,6 @@ struct LoginViewModel: LoginViewModelBindable {
             .flatMapLatest {
                 service.login(email: $0, password: $1)
             }
-            .asSignal(onErrorJustReturn: false)
+            .asSignal(onErrorJustReturn: .failure("Server error"))
     }
 }

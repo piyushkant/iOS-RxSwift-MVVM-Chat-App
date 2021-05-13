@@ -16,7 +16,7 @@ protocol LoginViewModelBindable: ViewModelType {
     var loginButtonTapped: PublishRelay<Void> { get }
     
     // Output
-    var isLoginCompleted: Signal<Bool> { get }
+    var isLoginCompleted: Signal<LoginResult> { get }
     var isFormValid: Driver<Bool> { get }
 }
 

@@ -11,19 +11,24 @@ import RxCocoa
 import Firebase
 import FirebaseFirestore
 
+public enum LoginResult {
+    case success
+    case failure (String)
+}
+
 final class AuthService {
     
     init() { }
     
     var disposeBag = DisposeBag()
     
-    func login(email: String, password: String) -> Observable<Bool> {
+    func login(email: String, password: String) -> Observable<LoginResult> {
         Observable.create {(observer) -> Disposable in
             Auth.auth().signIn(withEmail: email, password: password) { (_, error) in
                 if let error = error {
-                    observer.onError(error)
+                    observer.onNext(.failure(error.localizedDescription))
                 } else {
-                    observer.onNext(true)
+                    observer.onNext(.success)
                 }
             }
             

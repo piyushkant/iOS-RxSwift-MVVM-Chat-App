@@ -118,9 +118,16 @@ class LoginViewController: UIViewController, ViewType {
             .disposed(by: disposeBag)
         
         viewModel.isLoginCompleted
-            .emit(onNext: { [weak self] _ in
+            .emit(onNext: { [weak self] result in
                 self?.showActivityIndicator(false)
-                self?.switchToChatListVC()
+                
+                switch result {
+                case .success:
+                    self?.switchToChatListVC()
+                case .failure(let error):
+                    print(error.description)
+                    self?.showServerAlert(title: "Server Error", meessage: error.description)
+                }
             })
             .disposed(by: disposeBag)
         
@@ -139,6 +146,12 @@ class LoginViewController: UIViewController, ViewType {
             })
             .disposed(by: disposeBag)
         
+    }
+    
+    private func showServerAlert(title: String, meessage: String) {
+        let alert = UIAlertController(title: title, message: NSLocalizedString(meessage, comment: ""), preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
 }
 
