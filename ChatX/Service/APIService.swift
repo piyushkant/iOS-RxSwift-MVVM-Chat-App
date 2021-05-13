@@ -20,6 +20,7 @@ final class APIService: APIServiceProtocol {
     
     let firestoreUsers = Firestore.firestore().collection("users")
     let firestoreMessages = Firestore.firestore().collection("messages")
+    let firestorePush = Firestore.firestore().collection("push")
     
     private init() { }
     
@@ -89,7 +90,6 @@ final class APIService: APIServiceProtocol {
             }
             
             return Disposables.create {
-                print("Disposables")
                 observer.onCompleted()
             }
         }
@@ -117,11 +117,11 @@ final class APIService: APIServiceProtocol {
         }
     }
     
-    func uploadMessage(_ message: String, To user: User?) -> Observable<Bool> {
+    func uploadMessage(_ text: String, To user: User?) -> Observable<Bool> {
         guard let currentUid = Auth.auth().currentUser?.uid, let user = user else { return Observable.just(false)}
         
         let message: [String: Any] = [
-            "text": message,
+            "text": text,
             "fromId": currentUid,
             "toId": user.uid,
             "timestamp": Timestamp(date: Date())
@@ -132,12 +132,54 @@ final class APIService: APIServiceProtocol {
                 self.firestoreMessages.document(user.uid).collection(currentUid).addDocument(data: message) { (_) in
                     self.firestoreMessages.document(currentUid).collection("recent-messages").document(user.uid).setData(message)
                     self.firestoreMessages.document(user.uid).collection("recent-messages").document(currentUid).setData(message)
+                   
+                    self.fetchPushData()
+                        .subscribe(onNext: {
+                            PushNotificationSender().sendPushNotification(to: $0.token, title: $0.email, body: text)
+                        })
+                        .disposed(by: self.disposeBag)
+                    
                     observer.onNext(true)
                 }
             }
             return Disposables.create{
                 observer.onCompleted()
             }
+        }
+    }
+    
+    func uploadPushData(token: String) -> Observable<Bool> {
+        guard let uid = Auth.auth().currentUser?.uid, let email = Auth.auth().currentUser?.email else {return Observable.just(false)}
+        
+        let push: [String: Any] = [
+            "email": email,
+            "token": token,
+        ]
+        
+        return Observable<Bool>.create { (observer) -> Disposable in
+            self.firestorePush.document(uid).setData(push) { (error) in
+                if let error = error {
+                    print("Failed to upload push data: ", error)
+                    observer.onNext(false)
+                    return
+                }
+                observer.onNext(true)
+            }
+            return Disposables.create()
+        }
+    }
+    
+    func fetchPushData() -> Observable<Push> {
+        let uid = Auth.auth().currentUser?.uid
+        
+        return Observable.create { (observer) -> Disposable in
+            self.firestorePush.document(uid!).getDocument { (snapshot, error) in
+                guard let dic = snapshot?.data(), let email = dic["email"], let token = dic["token"] else {return}
+                
+                observer.onNext(Push(email: String(describing: email), token: String(describing: token)))
+                observer.onCompleted()
+            }
+            return Disposables.create()
         }
     }
 }

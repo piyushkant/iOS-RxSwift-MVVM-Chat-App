@@ -30,6 +30,8 @@
 		4B76460D264C192D00290E2E /* FakeAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B76460C264C192D00290E2E /* FakeAPIService.swift */; };
 		4B76460F264CBBE700290E2E /* ChatListViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B76460E264CBBE700290E2E /* ChatListViewModelTest.swift */; };
 		4B764611264CBDE800290E2E /* ChatViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B764610264CBDE800290E2E /* ChatViewModelTest.swift */; };
+		4B9E1A1D264D630A00936FD3 /* PushNotificationSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9E1A1C264D630A00936FD3 /* PushNotificationSender.swift */; };
+		4B9E1A20264D716000936FD3 /* Push.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9E1A1F264D716000936FD3 /* Push.swift */; };
 		4BEB39572641691A006FC9BB /* ChatViewModelBindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BEB39562641691A006FC9BB /* ChatViewModelBindable.swift */; };
 		4BEB395926416942006FC9BB /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BEB395826416942006FC9BB /* ChatViewModel.swift */; };
 		4BEB395B26416950006FC9BB /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BEB395A26416950006FC9BB /* ChatViewController.swift */; };
@@ -95,6 +97,8 @@
 		4B76460E264CBBE700290E2E /* ChatListViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListViewModelTest.swift; sourceTree = "<group>"; };
 		4B764610264CBDE800290E2E /* ChatViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModelTest.swift; sourceTree = "<group>"; };
 		4B9E1A1B264D60DE00936FD3 /* ChatX.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ChatX.entitlements; sourceTree = "<group>"; };
+		4B9E1A1C264D630A00936FD3 /* PushNotificationSender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotificationSender.swift; sourceTree = "<group>"; };
+		4B9E1A1F264D716000936FD3 /* Push.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Push.swift; sourceTree = "<group>"; };
 		4BEB39562641691A006FC9BB /* ChatViewModelBindable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModelBindable.swift; sourceTree = "<group>"; };
 		4BEB395826416942006FC9BB /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
 		4BEB395A26416950006FC9BB /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
@@ -201,6 +205,14 @@
 			path = Bindable;
 			sourceTree = "<group>";
 		};
+		4B9E1A1E264D647C00936FD3 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				4B9E1A1C264D630A00936FD3 /* PushNotificationSender.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
 		4BFD0976263FB004004D43E2 = {
 			isa = PBXGroup;
 			children = (
@@ -224,6 +236,7 @@
 		4BFD0981263FB004004D43E2 /* ChatX */ = {
 			isa = PBXGroup;
 			children = (
+				4B9E1A1E264D647C00936FD3 /* Helper */,
 				4B9E1A1B264D60DE00936FD3 /* ChatX.entitlements */,
 				4B0C485126402CAF002BD081 /* Extension */,
 				4BFD09C1263FEC0D004D43E2 /* Service */,
@@ -293,6 +306,7 @@
 				4BFD09C8263FF17B004D43E2 /* User.swift */,
 				4BFD09CA263FF18C004D43E2 /* Message.swift */,
 				4BFD09CD263FF25C004D43E2 /* Conversation.swift */,
+				4B9E1A1F264D716000936FD3 /* Push.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -538,6 +552,7 @@
 				4B76460B264C181B00290E2E /* APIServiceProtocol.swift in Sources */,
 				4B0C48592640393E002BD081 /* Reactive+Ext.swift in Sources */,
 				4BEB395F26416E9D006FC9BB /* MessageCell.swift in Sources */,
+				4B9E1A20264D716000936FD3 /* Push.swift in Sources */,
 				4B0C486A26412394002BD081 /* APIService.swift in Sources */,
 				4BFD0987263FB004004D43E2 /* LoginViewController.swift in Sources */,
 				4B0C485326402CC0002BD081 /* UIViewController+Ext.swift in Sources */,
@@ -557,6 +572,7 @@
 				4B0C4857264034BD002BD081 /* SignupViewController.swift in Sources */,
 				4BFD09CE263FF25C004D43E2 /* Conversation.swift in Sources */,
 				4B0C484C26400A33002BD081 /* CustomTextField.swift in Sources */,
+				4B9E1A1D264D630A00936FD3 /* PushNotificationSender.swift in Sources */,
 				4BEB39572641691A006FC9BB /* ChatViewModelBindable.swift in Sources */,
 				4BFD09C9263FF17B004D43E2 /* User.swift in Sources */,
 				4B0C486C264126BB002BD081 /* ChatListCell.swift in Sources */,

@@ -7,6 +7,7 @@
 
 import UIKit
 import Firebase
+import RxSwift
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -34,14 +35,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         Messaging.messaging().delegate = self
         
-        Messaging.messaging().token { token, error in
-            if let error = error {
-                print("Error fetching FCM registration token: \(error)")
-            } else if let token = token {
-                print("FCM registration token: \(token)")
-            }
-        }
-        
         return true
     }
     
@@ -59,10 +52,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 extension AppDelegate: MessagingDelegate {
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
-      print("Firebase registration token: \(String(describing: fcmToken))")
-
-      let dataDict:[String: String] = ["token": fcmToken ?? ""]
-      NotificationCenter.default.post(name: Notification.Name("FCMToken"), object: nil, userInfo: dataDict)
+        print("Firebase registration token: \(String(describing: fcmToken))")
+        
+        if let token = fcmToken {
+            APIService.shared.uploadPushData(token: String(describing: token))
+                .subscribe(onNext: {
+                    print("Uploaded push data: \($0)")
+                })
+                .disposed(by: DisposeBag())
+            
+        }
+    
+        let dataDict:[String: String] = ["token": fcmToken ?? ""]
+        NotificationCenter.default.post(name: Notification.Name("FCMToken"), object: nil, userInfo: dataDict)
     }
 }
 
