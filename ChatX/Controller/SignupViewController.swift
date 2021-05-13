@@ -158,9 +158,14 @@ final class SignupViewController: UIViewController, ViewType {
             .disposed(by: disposeBag)
 
         viewModel.isRegistered
-            .filter{ $0 == true }
-            .emit(onNext: { [weak self] _ in
-                self?.switchToChatListVC()
+            .emit(onNext: { [weak self] result in
+                switch result {
+                case .success:
+                    self?.switchToChatListVC()
+                case .failure(let error):
+                    print(error.description)
+                    self?.showServerAlert(title: "Server Error", meessage: error.description)
+                }
             })
             .disposed(by: disposeBag)
 

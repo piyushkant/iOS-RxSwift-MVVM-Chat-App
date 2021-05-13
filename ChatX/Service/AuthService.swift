@@ -38,17 +38,22 @@ final class AuthService {
         }
     }
     
-    func signup(values: UserValues) -> Observable<Bool> {
+    func signup(values: UserValues) -> Observable<LoginResult> {
         Observable.create { (observer) -> Disposable in
             Auth.auth().createUser(withEmail: values.email, password: values.password) { (result, error) in
                 if let error = error {
                     print("failed to create User: ", error)
-                    observer.onNext(false)
+                    observer.onNext(.failure(error.localizedDescription))
                     return
                 }
                 self.saveImageToFirebase(values: values)
                     .subscribe(onNext: {
-                        observer.onNext($0)
+                        if $0 {
+                            observer.onNext(.success)
+                        } else {
+                            observer.onNext(.failure("Server error"))
+                        }
+                        
                     })
                     .disposed(by: self.disposeBag)
             }
