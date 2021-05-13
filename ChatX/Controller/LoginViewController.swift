@@ -110,7 +110,7 @@ class LoginViewController: UIViewController, ViewType {
             .disposed(by: disposeBag)
         
         //viewModel -> Output
-        viewModel.isValidForm
+        viewModel.isFormValid
             .drive(onNext: { [weak self] in
                 self?.loginButton.isEnabled = $0
                 self?.loginButton.backgroundColor = $0 ? #colorLiteral(red: 0.001363703748, green: 0.4848565459, blue: 0.9982791543, alpha: 1) : #colorLiteral(red: 0, green: 0.7599403262, blue: 0.9988735318, alpha: 1)

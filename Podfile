@@ -5,7 +5,6 @@ target 'ChatX' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
-  # Pods for ChatX
   pod 'SnapKit'
   pod 'RxSwift'
   pod 'RxCocoa'
@@ -21,11 +20,10 @@ target 'ChatX' do
 
   target 'ChatXTests' do
     inherit! :search_paths
-    # Pods for testing
-  end
-
-  target 'ChatXUITests' do
-    # Pods for testing
+    pod 'Quick'
+    pod 'Nimble'
+    pod 'RxTest'
+    pod 'RxBlocking'
   end
 
 end

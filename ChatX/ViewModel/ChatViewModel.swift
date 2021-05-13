@@ -21,7 +21,7 @@ struct ChatViewModel: ChatViewModelBindable {
     
     var disposeBag = DisposeBag()
     
-    init(user: User, service: APIService = .shared) {
+    init(user: User, service: APIServiceProtocol = APIService.shared) {
         self.userData.accept(user)
         
         let didNewMessageIncome = PublishRelay<Void>()

@@ -11,12 +11,12 @@ import RxCocoa
 
 protocol LoginViewModelBindable: ViewModelType {
     // Input
-    var email: BehaviorSubject<String> { get }
-    var password: BehaviorSubject<String> { get }
+    var email: BehaviorRelay<String> { get }
+    var password: BehaviorRelay<String> { get }
     var loginButtonTapped: PublishRelay<Void> { get }
     
     // Output
     var isLoginCompleted: Signal<Bool> { get }
-    var isValidForm: Driver<Bool> { get }
+    var isFormValid: Driver<Bool> { get }
 }
 

@@ -12,7 +12,7 @@ import FirebaseAuth
 import RxSwift
 import RxCocoa
 
-final class APIService {
+final class APIService: APIServiceProtocol {
     
     static let shared = APIService()
     
