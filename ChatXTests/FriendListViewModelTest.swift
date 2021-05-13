@@ -28,8 +28,8 @@ class FriendListViewModelTest : XCTestCase {
         fakeUsers.append(fakeUser2!)
         
         let fakeService = FakeAPIService(fakeUsers: fakeUsers)
-        
         viewModel = FriendListViewModel(service: fakeService)
+        
         scheduler = ConcurrentDispatchQueueScheduler(qos: .default)
     }
     

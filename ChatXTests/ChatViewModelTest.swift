@@ -28,8 +28,8 @@ class ChatViewModelTest : XCTestCase {
         fakeMessages.append(fakeMessage2)
         
         let fakeService = FakeAPIService(fakeMessages: fakeMessages)
-        
         viewModel = ChatViewModel(user: fakeUser1!, service: fakeService)
+        
         scheduler = ConcurrentDispatchQueueScheduler(qos: .default)
     }
     
