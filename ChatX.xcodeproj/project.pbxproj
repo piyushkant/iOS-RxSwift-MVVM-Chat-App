@@ -94,6 +94,7 @@
 		4B76460C264C192D00290E2E /* FakeAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeAPIService.swift; sourceTree = "<group>"; };
 		4B76460E264CBBE700290E2E /* ChatListViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListViewModelTest.swift; sourceTree = "<group>"; };
 		4B764610264CBDE800290E2E /* ChatViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModelTest.swift; sourceTree = "<group>"; };
+		4B9E1A1B264D60DE00936FD3 /* ChatX.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ChatX.entitlements; sourceTree = "<group>"; };
 		4BEB39562641691A006FC9BB /* ChatViewModelBindable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModelBindable.swift; sourceTree = "<group>"; };
 		4BEB395826416942006FC9BB /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
 		4BEB395A26416950006FC9BB /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
@@ -223,6 +224,7 @@
 		4BFD0981263FB004004D43E2 /* ChatX */ = {
 			isa = PBXGroup;
 			children = (
+				4B9E1A1B264D60DE00936FD3 /* ChatX.entitlements */,
 				4B0C485126402CAF002BD081 /* Extension */,
 				4BFD09C1263FEC0D004D43E2 /* Service */,
 				4BFD09BC263FEAB4004D43E2 /* Protocol */,
@@ -736,6 +738,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ChatX/ChatX.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6Q6573TH26;
 				INFOPLIST_FILE = ChatX/Info.plist;
@@ -756,6 +759,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ChatX/ChatX.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6Q6573TH26;
 				INFOPLIST_FILE = ChatX/Info.plist;
