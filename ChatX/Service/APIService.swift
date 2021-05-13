@@ -133,9 +133,10 @@ final class APIService: APIServiceProtocol {
                     self.firestoreMessages.document(currentUid).collection("recent-messages").document(user.uid).setData(message)
                     self.firestoreMessages.document(user.uid).collection("recent-messages").document(currentUid).setData(message)
                    
-                    self.fetchPushData()
+                    self.fetchPushData(forUser: user)
                         .subscribe(onNext: {
-                            PushNotificationSender().sendPushNotification(to: $0.token, title: $0.email, body: text)
+                            print("user.email", user.email)
+                            PushNotificationSender().sendPushNotification(to: $0.token, title: String(describing: Auth.auth().currentUser?.email ?? "ChatX Friend"), body: text)
                         })
                         .disposed(by: self.disposeBag)
                     
@@ -169,11 +170,11 @@ final class APIService: APIServiceProtocol {
         }
     }
     
-    func fetchPushData() -> Observable<Push> {
-        let uid = Auth.auth().currentUser?.uid
+    func fetchPushData(forUser user: User) -> Observable<Push> {
+        let uid = user.uid
         
         return Observable.create { (observer) -> Disposable in
-            self.firestorePush.document(uid!).getDocument { (snapshot, error) in
+            self.firestorePush.document(uid).getDocument { (snapshot, error) in
                 guard let dic = snapshot?.data(), let email = dic["email"], let token = dic["token"] else {return}
                 
                 observer.onNext(Push(email: String(describing: email), token: String(describing: token)))
