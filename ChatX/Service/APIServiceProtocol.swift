@@ -5,12 +5,7 @@
 //  Created by Piyush Kant on 2021/05/12.
 //
 
-import Foundation
-import Firebase
-import FirebaseFirestore
-import FirebaseAuth
 import RxSwift
-import RxCocoa
 
 protocol APIServiceProtocol {
         

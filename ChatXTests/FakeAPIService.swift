@@ -15,7 +15,7 @@ class FakeAPIService: APIServiceProtocol {
     private var fakeUser: User?
     private var fakeUsers: [User]?
     private var fakeConversations: [Conversation]?
-    private var fakeMessage: [Message]?
+    private var fakeMessages: [Message]?
     
     init(fakeUser: User) {
         self.fakeUser = fakeUser
@@ -29,8 +29,8 @@ class FakeAPIService: APIServiceProtocol {
         self.fakeConversations = fakeConversations
     }
     
-    init(fakeMessage: [Message]) {
-        self.fakeMessage = fakeMessage
+    init(fakeMessages: [Message]) {
+        self.fakeMessages = fakeMessages
     }
     
     func fetchUser(uid: String) -> Observable<User?> {
@@ -46,7 +46,7 @@ class FakeAPIService: APIServiceProtocol {
     }
     
     func fetchMessages(forUser user: User) -> Observable<[Message]> {
-        return Observable.just(self.fakeMessage!)
+        return Observable.just(self.fakeMessages!)
     }
     
     func uploadMessage(_ message: String, To user: User?) -> Observable<Bool> {

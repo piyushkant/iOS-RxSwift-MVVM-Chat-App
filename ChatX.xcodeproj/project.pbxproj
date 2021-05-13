@@ -29,6 +29,8 @@
 		4B764609264C136500290E2E /* FriendListViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B764608264C136500290E2E /* FriendListViewModelTest.swift */; };
 		4B76460B264C181B00290E2E /* APIServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B76460A264C181B00290E2E /* APIServiceProtocol.swift */; };
 		4B76460D264C192D00290E2E /* FakeAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B76460C264C192D00290E2E /* FakeAPIService.swift */; };
+		4B76460F264CBBE700290E2E /* ChatListViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B76460E264CBBE700290E2E /* ChatListViewModelTest.swift */; };
+		4B764611264CBDE800290E2E /* ChatViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B764610264CBDE800290E2E /* ChatViewModelTest.swift */; };
 		4BEB39572641691A006FC9BB /* ChatViewModelBindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BEB39562641691A006FC9BB /* ChatViewModelBindable.swift */; };
 		4BEB395926416942006FC9BB /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BEB395826416942006FC9BB /* ChatViewModel.swift */; };
 		4BEB395B26416950006FC9BB /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BEB395A26416950006FC9BB /* ChatViewController.swift */; };
@@ -92,6 +94,8 @@
 		4B764608264C136500290E2E /* FriendListViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListViewModelTest.swift; sourceTree = "<group>"; };
 		4B76460A264C181B00290E2E /* APIServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceProtocol.swift; sourceTree = "<group>"; };
 		4B76460C264C192D00290E2E /* FakeAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeAPIService.swift; sourceTree = "<group>"; };
+		4B76460E264CBBE700290E2E /* ChatListViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListViewModelTest.swift; sourceTree = "<group>"; };
+		4B764610264CBDE800290E2E /* ChatViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModelTest.swift; sourceTree = "<group>"; };
 		4BEB39562641691A006FC9BB /* ChatViewModelBindable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModelBindable.swift; sourceTree = "<group>"; };
 		4BEB395826416942006FC9BB /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
 		4BEB395A26416950006FC9BB /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
@@ -108,8 +112,6 @@
 		4BFD0990263FB005004D43E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4BFD0995263FB005004D43E2 /* ChatXTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChatXTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BFD099B263FB005004D43E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4BFD09A4263FB005004D43E2 /* ChatXUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatXUITests.swift; sourceTree = "<group>"; };
-		4BFD09A6263FB005004D43E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4BFD09B2263FB5D9004D43E2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4BFD09BD263FEB26004D43E2 /* ViewType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewType.swift; sourceTree = "<group>"; };
 		4BFD09BF263FEB57004D43E2 /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
@@ -205,7 +207,6 @@
 			children = (
 				4BFD0981263FB004004D43E2 /* ChatX */,
 				4BFD0998263FB005004D43E2 /* ChatXTests */,
-				4BFD09A3263FB005004D43E2 /* ChatXUITests */,
 				4BFD0980263FB004004D43E2 /* Products */,
 				29D50FD3AA9268EF84C0FDBD /* Pods */,
 				2EAC093B0FED444BD57BF242 /* Frameworks */,
@@ -250,17 +251,10 @@
 				4B764606264BF12F00290E2E /* SignupViewModelTest.swift */,
 				4B764608264C136500290E2E /* FriendListViewModelTest.swift */,
 				4B76460C264C192D00290E2E /* FakeAPIService.swift */,
+				4B76460E264CBBE700290E2E /* ChatListViewModelTest.swift */,
+				4B764610264CBDE800290E2E /* ChatViewModelTest.swift */,
 			);
 			path = ChatXTests;
-			sourceTree = "<group>";
-		};
-		4BFD09A3263FB005004D43E2 /* ChatXUITests */ = {
-			isa = PBXGroup;
-			children = (
-				4BFD09A4263FB005004D43E2 /* ChatXUITests.swift */,
-				4BFD09A6263FB005004D43E2 /* Info.plist */,
-			);
-			path = ChatXUITests;
 			sourceTree = "<group>";
 		};
 		4BFD09B4263FE8EB004D43E2 /* App */ = {
@@ -585,10 +579,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B764611264CBDE800290E2E /* ChatViewModelTest.swift in Sources */,
 				4B764609264C136500290E2E /* FriendListViewModelTest.swift in Sources */,
 				4B76460D264C192D00290E2E /* FakeAPIService.swift in Sources */,
 				4B764607264BF12F00290E2E /* SignupViewModelTest.swift in Sources */,
 				4B764605264BC97900290E2E /* LoginViewModelTest.swift in Sources */,
+				4B76460F264CBBE700290E2E /* ChatListViewModelTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
