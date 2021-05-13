@@ -8,8 +8,6 @@
 import XCTest
 import RxSwift
 import RxBlocking
-import RxNimble
-import Nimble
 
 @testable import ChatX
 
