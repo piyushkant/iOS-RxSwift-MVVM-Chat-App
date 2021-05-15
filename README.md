@@ -1,7 +1,7 @@
 # ChatX
 
 - A chat/messaging iOS app
-- Figma for wireframing/prototyping (Figma prototype video url: https://www.figma.com/proto/TGAXDwH7a0Gye9nlfp5EcA/ChatX)
+- Figma for wireframing/prototyping (prototype url: https://www.figma.com/proto/TGAXDwH7a0Gye9nlfp5EcA/ChatX)
 - Based on RxSwift and MVVM design pattern
 - Google Firebase auth for authenticaton and Firestore for db
 - Apple Push Notification Server (APNs) for push notifications
