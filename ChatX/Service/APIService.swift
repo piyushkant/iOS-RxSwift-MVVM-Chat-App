@@ -126,20 +126,20 @@ final class APIService: APIServiceProtocol {
             "toId": user.uid,
             "timestamp": Timestamp(date: Date())
         ]
-                
+        
         return Observable.create { (observer) -> Disposable in
             self.firestoreMessages.document(currentUid).collection(user.uid).addDocument(data: message) { (_) in
                 self.firestoreMessages.document(user.uid).collection(currentUid).addDocument(data: message) { (_) in
                     self.firestoreMessages.document(currentUid).collection("recent-messages").document(user.uid).setData(message)
                     self.firestoreMessages.document(user.uid).collection("recent-messages").document(currentUid).setData(message)
-                   
+                    
                     self.fetchPushData(forUser: user)
                         .subscribe(onNext: {
-                          
+                            
                             let token = $0.token
                             let title = String(describing: Auth.auth().currentUser?.email ?? "ChatX Friend")
                             let body = text
-
+                            
                             self.sendPushNotification(to: token, title: title, body: body)
                                 .subscribe( onNext: {
                                     print("Sent push notification: \($0)")
@@ -160,16 +160,15 @@ final class APIService: APIServiceProtocol {
     func sendPushNotification(to token: String, title: String, body: String)-> Observable<Bool> {
         let urlString = "https://fcm.googleapis.com/fcm/send"
         let url = NSURL(string: urlString)!
-        let paramString: [String : Any] = ["to" : token,
-                                           "notification" : ["title" : title, "body" : body],
-                                           "data" : ["user" : "test_id"]
-        ]
+        let paramString: [String : Any] = ["to" : token, "notification" : ["title" : title, "body" : body], "data" : ["user" : "test_id"]]
         
         let request = NSMutableURLRequest(url: url as URL)
         request.httpMethod = "POST"
         request.httpBody = try? JSONSerialization.data(withJSONObject:paramString, options: [.prettyPrinted])
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.setValue("key=AAAAXANZbDU:APA91bE4hpvq156kQNOQmHClGfG_sp2qH0q47v8KZ8EOwwyfxWQgXOvwtGHqkkod03urxaSU_LnhyZsGvE8CeGUklrkTrctHsD2dcaE9cFA4fBbunkiMZQWdoQcYYFsqKAla2P1fbxuK", forHTTPHeaderField: "Authorization")
+        
+        let serverKey = PropertyUtils.getValue(fileName: "Push-Info", key: "gcm_server_key")
+        request.setValue("key=\(serverKey)", forHTTPHeaderField: "Authorization")
         
         return Observable.create { (observer) -> Disposable in
             let task =  URLSession.shared.dataTask(with: request as URLRequest)  { (data, response, error) in
