@@ -158,7 +158,7 @@ final class APIService: APIServiceProtocol {
     }
     
     func sendPushNotification(to token: String, title: String, body: String)-> Observable<Bool> {
-        let urlString = "https://fcm.googleapis.com/fcm/send"
+        let urlString = EndPoint.send.url.absoluteString
         let url = NSURL(string: urlString)!
         let paramString: [String : Any] = ["to" : token, "notification" : ["title" : title, "body" : body], "data" : ["user" : "test_id"]]
         
