@@ -9,7 +9,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-protocol FriendListViewModelBindable: ViewModelType {
+protocol FriendListViewModelBindable {
     // Input -> ViewModel
     var refreshPulled: PublishRelay<Void> { get }
     var filterKey: PublishRelay<String> { get }

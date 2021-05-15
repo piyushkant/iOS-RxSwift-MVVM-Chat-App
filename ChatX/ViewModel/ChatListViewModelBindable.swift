@@ -9,7 +9,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-protocol ChatListViewModelBindable: ViewModelType {
+protocol ChatListViewModelBindable {
     // Input -> ViewModel
     var filterKey: PublishRelay<String> { get }
     var searchCancelButtonTapped: PublishRelay<Void> { get }

@@ -9,7 +9,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-protocol LoginViewModelBindable: ViewModelType {
+protocol LoginViewModelBindable {
     // Input
     var email: BehaviorRelay<String> { get }
     var password: BehaviorRelay<String> { get }

@@ -9,7 +9,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-protocol SignupViewModelBindable: ViewModelType {
+protocol SignupViewModelBindable {
     // Input
     var profileImage: PublishRelay<UIImage?> { get }
     var email: PublishRelay<String> { get }
