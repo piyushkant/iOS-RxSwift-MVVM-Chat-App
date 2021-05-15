@@ -10,9 +10,9 @@ import SnapKit
 import RxSwift
 import RxCocoa
 
-class LoginViewController: UIViewController, ViewType {
+class LoginViewController: UIViewController, BaseViewProtocol {
     
-    var viewModel: LoginViewModelBindable!
+    var viewModel: LoginViewModelModeling!
     var disposeBag: DisposeBag!
     
     private let appLogoImageView: UIImageView = {
@@ -36,7 +36,6 @@ class LoginViewController: UIViewController, ViewType {
         navigationController?.navigationBar.isHidden = true
     }
     
-    // MARK: - Initial UI Setup
     func setupUI() {
         self.setupDetailAttributesOfUI()
         self.setupAppLogoImageView()
@@ -96,7 +95,7 @@ class LoginViewController: UIViewController, ViewType {
     // MARK: - Binding
     func bind() {
         
-        //Input -> ViewModel
+        // MARK: - Input
         emailTextField.rx.text
             .orEmpty
             .distinctUntilChanged()
@@ -109,7 +108,7 @@ class LoginViewController: UIViewController, ViewType {
             .bind(to: viewModel.password)
             .disposed(by: disposeBag)
         
-        //viewModel -> Output
+        // MARK: - Output
         viewModel.isFormValid
             .drive(onNext: { [weak self] in
                 self?.loginButton.isEnabled = $0
@@ -131,7 +130,7 @@ class LoginViewController: UIViewController, ViewType {
             })
             .disposed(by: disposeBag)
         
-        // UI Binding
+        // MARK: - UI Binding
         loginButton.rx.tap
             .do(onNext: { [unowned self] _ in
                 self.showActivityIndicator(true)

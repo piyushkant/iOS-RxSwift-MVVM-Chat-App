@@ -9,13 +9,14 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-struct FriendListViewModel: FriendListViewModelBindable {
-    // Input
+struct FriendListViewModel: FriendListViewModelModeling {
+    
+    // MARK: - Input
     let refreshPulled: PublishRelay<Void>
     let filterKey = PublishRelay<String>()
     let searchCancelButtonTapped = PublishRelay<Void>()
     
-    // Output
+    // MARK: - Output
     var users = BehaviorRelay<[User]>(value: [])
     let isNetworking: Driver<Bool>
     
@@ -23,18 +24,15 @@ struct FriendListViewModel: FriendListViewModelBindable {
     
     init(service: APIServiceProtocol = APIService.shared) {
         
-        // Proxy
         let onRefreshPulled = PublishRelay<Void>()
         refreshPulled = onRefreshPulled
         
         let onNetworking = PublishRelay<Bool>()
         isNetworking = onNetworking.asDriver(onErrorJustReturn: false)
         
-        // Material
         let baseUsersForFiltering = PublishRelay<[User]>()
         let onSearching = BehaviorRelay<Bool>(value: false)
         
-        // ReFetching by refreshing and canceling search
         let refreshing = Observable
             .combineLatest(
                 refreshPulled,
@@ -43,7 +41,6 @@ struct FriendListViewModel: FriendListViewModelBindable {
             .filter{ !$1 }
             .mapToVoid()
         
-        // Initial Fetching
         let fetchedUsers = service
             .fetchUsers()
             .retry{ _ in onRefreshPulled }
@@ -76,7 +73,6 @@ struct FriendListViewModel: FriendListViewModelBindable {
             .bind(to: users)
             .disposed(by: disposeBag)
         
-        // Keyword for searching
         let inputText = filterKey
             .distinctUntilChanged()
             .throttle(.milliseconds(300), scheduler: MainScheduler.instance)

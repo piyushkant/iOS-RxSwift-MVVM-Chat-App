@@ -10,14 +10,14 @@ import RxSwift
 import RxCocoa
 import Firebase
 
-struct LoginViewModel: LoginViewModelBindable {
+struct LoginViewModel: LoginViewModelModeling {
     
-    // Mark: Input
+    // MARK: - Input
     let email = BehaviorRelay<String>(value: "")
     let password = BehaviorRelay<String>(value: "")
     let loginButtonTapped = PublishRelay<Void>()
     
-    // Mark: Output
+    // MARK: - Output
     let isLoginCompleted: Signal<LoginResult>
     let isFormValid: Driver<Bool>
     

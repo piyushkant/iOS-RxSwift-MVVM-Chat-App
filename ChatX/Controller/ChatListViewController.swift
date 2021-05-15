@@ -9,11 +9,10 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-final class ChatListViewController: UIViewController, ViewType {
+final class ChatListViewController: UIViewController, BaseViewProtocol {
     
     let searchController = UISearchController()
     
-    // MARK: - Properties
     private let tableView = UITableView()
     private let addMessageButton: UIButton = {
         let btn = UIButton(type: .system)
@@ -24,9 +23,8 @@ final class ChatListViewController: UIViewController, ViewType {
     }()
     
     var disposeBag: DisposeBag!
-    var viewModel: ChatListViewModelBindable!
+    var viewModel: ChatListViewModelModeling!
     
-    // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -36,7 +34,6 @@ final class ChatListViewController: UIViewController, ViewType {
         setupNavigationBar(with: "ChatX", prefersLargeTitles: false)
     }
     
-    // MARK: - Initial Setup
     func setupUI() {
         view.backgroundColor = .white
         setupTableView()
@@ -78,7 +75,7 @@ final class ChatListViewController: UIViewController, ViewType {
     // MARK: - Binding
     func bind() {
         
-        // UI Binding
+        // MARK: -  UI Binding
         navigationItem.rightBarButtonItem?.rx.tap
             .subscribe(onNext: { [unowned self] in
                 self.logoutAlert()
@@ -118,7 +115,7 @@ final class ChatListViewController: UIViewController, ViewType {
             .disposed(by: disposeBag)
         
         
-        // ViewModel -> Output
+        // MARK: - Output
         viewModel.conversations
             .bind(to: tableView.rx.items(cellIdentifier: ChatListCell.reuseIdentifier, cellType: ChatListCell.self)) { row, conversation, cell in
                 cell.conversation = conversation

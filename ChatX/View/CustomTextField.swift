@@ -1,5 +1,5 @@
 //
-//  CredInputTextField.swift
+//  CustomTextField.swift
 //  ChatX
 //
 //  Created by Piyush Kant on 2021/05/03.
@@ -60,5 +60,3 @@ final class CustomTextField: UITextField {
         return super.resignFirstResponder()
     }
 }
-
-//UIColor(red: 0, green: 0, blue: 0.0980392, alpha: 0.22)

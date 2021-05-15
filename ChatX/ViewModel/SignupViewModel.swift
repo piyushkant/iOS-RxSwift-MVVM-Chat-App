@@ -12,7 +12,7 @@ import Firebase
 
 typealias UserValues = (profileImage: UIImage?, email: String, fullName: String, userName: String, password: String)
 
-struct SignupViewModel: SignupViewModelBindable {
+struct SignupViewModel: SignupViewModelModeling {
     
     // MARK: - Input
     let profileImage = PublishRelay<UIImage?>()

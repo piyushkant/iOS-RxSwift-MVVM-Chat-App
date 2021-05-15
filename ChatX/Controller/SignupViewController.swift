@@ -9,7 +9,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-final class SignupViewController: UIViewController, ViewType {
+final class SignupViewController: UIViewController, BaseViewProtocol {
     
     // MARK: - Properties
     let addPhotoButton: UIButton = {
@@ -38,18 +38,11 @@ final class SignupViewController: UIViewController, ViewType {
     
     private let stackView = UIStackView()
     
-    var viewModel: SignupViewModelBindable!
+    var viewModel: SignupViewModelModeling!
     var disposeBag: DisposeBag!
     
-    // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    
-    //remove me
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.navigationBar.isHidden = true
     }
     
     func setupUI() {
@@ -59,7 +52,6 @@ final class SignupViewController: UIViewController, ViewType {
         setupLoginPageButton()
         setTapGesture() 
     }
-    
     
     private func setupUIAttributeThings() {
         view.backgroundColor = .white
@@ -109,7 +101,7 @@ final class SignupViewController: UIViewController, ViewType {
     // MARK: - Binding
     func bind() {
         
-        // Input -> ViewModel
+        // MARK: - Input
         signUpButton.rx.tap
             .bind(to: viewModel.signupButtonTapped)
             .disposed(by: disposeBag)
@@ -139,7 +131,7 @@ final class SignupViewController: UIViewController, ViewType {
             .disposed(by: disposeBag)
         
         
-        // viewModel -> Output
+        // MARK: - Output
         viewModel.isFormValid
             .drive(onNext: { [weak self] in
                 self?.signUpButton.isEnabled = $0
@@ -170,7 +162,7 @@ final class SignupViewController: UIViewController, ViewType {
             .disposed(by: disposeBag)
 
 
-        // UI Binding
+        // MARK: - UI Binding
         addPhotoButton.rx.tap
             .subscribe(onNext: { [unowned self] in
                 self.didTapAddPhotoButton(viewController: self)
@@ -184,7 +176,7 @@ final class SignupViewController: UIViewController, ViewType {
             .disposed(by: disposeBag)
 
 
-        // Notification binding
+        // MARK: - Notification binding
         NotificationCenter.default.rx.notification(UIResponder.keyboardWillShowNotification)
             .map { [weak self] notification -> CGFloat in
                 guard let self = self else { fatalError() }

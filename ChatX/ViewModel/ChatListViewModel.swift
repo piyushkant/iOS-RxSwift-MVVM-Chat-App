@@ -9,12 +9,13 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-struct ChatListViewModel: ChatListViewModelBindable {
-    //Input
+struct ChatListViewModel: ChatListViewModelModeling {
+    
+    // MARK: - Input
     let filterKey = PublishRelay<String>()
     let searchCancelButtonTapped = PublishRelay<Void>()
     
-    //Output
+    // MARK: - Output
     let conversations = BehaviorRelay<[Conversation]>(value: [])
     
     var disposeBag = DisposeBag()
@@ -47,7 +48,6 @@ struct ChatListViewModel: ChatListViewModelBindable {
             .bind(to: conversations)
             .disposed(by: disposeBag)
         
-        // Keyword for searching
         let inputText = filterKey
             .distinctUntilChanged()
             .throttle(.milliseconds(300), scheduler: MainScheduler.instance)
@@ -60,7 +60,6 @@ struct ChatListViewModel: ChatListViewModelBindable {
         )
         .filter { $0.0 != ""}
         .map{ text, conversations -> [Conversation] in
-            //            onSearching.accept(true)
             return conversations.filter{
                 $0.user.username.lowercased().contains(text)
             }
