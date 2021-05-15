@@ -9,11 +9,12 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-protocol ChatListViewModelBindable {
-    // Input -> ViewModel
+protocol ChatListViewModelModeling {
+    
+    // MARK: - Input
     var filterKey: PublishRelay<String> { get }
     var searchCancelButtonTapped: PublishRelay<Void> { get }
     
-    //Output
+    // MARK: - Output
     var conversations: BehaviorRelay<[Conversation]> { get }
 }

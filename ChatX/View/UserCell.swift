@@ -11,9 +11,7 @@ import SDWebImage
 
 final class UserCell: UITableViewCell {
     static let reuseIdentifier = "UserCell"
-    
-    // MARK: - Properties
-    
+        
     var user: User? {
         didSet {
             setupCell()

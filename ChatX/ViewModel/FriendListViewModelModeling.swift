@@ -9,13 +9,14 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-protocol FriendListViewModelBindable {
-    // Input -> ViewModel
+protocol FriendListViewModelModeling {
+    
+    // MARK: - Input
     var refreshPulled: PublishRelay<Void> { get }
     var filterKey: PublishRelay<String> { get }
     var searchCancelButtonTapped: PublishRelay<Void> { get }
     
-    // ViewModel -> OutPut
+    // MARK: - Output
     var users: BehaviorRelay<[User]> { get }
     var isNetworking: Driver<Bool> { get }
 }

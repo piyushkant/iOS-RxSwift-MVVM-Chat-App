@@ -9,13 +9,14 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-protocol LoginViewModelBindable {
-    // Input
+protocol LoginViewModelModeling {
+    
+    // MARK: - Input
     var email: BehaviorRelay<String> { get }
     var password: BehaviorRelay<String> { get }
     var loginButtonTapped: PublishRelay<Void> { get }
     
-    // Output
+    // MARK: - Output
     var isLoginCompleted: Signal<LoginResult> { get }
     var isFormValid: Driver<Bool> { get }
 }

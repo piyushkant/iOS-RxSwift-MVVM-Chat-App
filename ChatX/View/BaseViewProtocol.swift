@@ -1,5 +1,5 @@
 //
-//  ViewType.swift
+//  BaseViewProtocol.swift
 //  ChatX
 //
 //  Created by Piyush Kant on 2021/05/03.
@@ -8,9 +8,8 @@
 import UIKit
 import RxSwift
 
-// MARK: - BaseView Protocol
 
-protocol ViewType: AnyObject {
+protocol BaseViewProtocol: AnyObject {
     
     associatedtype VM
     
@@ -20,11 +19,10 @@ protocol ViewType: AnyObject {
     func bind()
 }
 
-extension ViewType where Self: UIViewController {
+extension BaseViewProtocol where Self: UIViewController {
     static func create(with viewModel: VM) -> Self {
         let `self` = Self()
         
-        // DI
         self.viewModel = viewModel
         
         // Initial Setup

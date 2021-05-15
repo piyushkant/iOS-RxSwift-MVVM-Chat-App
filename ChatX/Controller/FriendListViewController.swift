@@ -9,18 +9,16 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-final class FriendListViewController: UIViewController, ViewType {
+final class FriendListViewController: UIViewController, BaseViewProtocol {
     
-    // MARK: - Properties
     let tableView = UITableView()
     let searchController = UISearchController()
     private let refresh = UIRefreshControl()
     private let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: nil, action: nil)
     
-    var viewModel: FriendListViewModelBindable!
+    var viewModel: FriendListViewModelModeling!
     var disposeBag: DisposeBag!
     
-    // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -30,7 +28,6 @@ final class FriendListViewController: UIViewController, ViewType {
         setupNavigationBar(with: "Friend List", prefersLargeTitles: false)
     }
     
-    // MARK: - Initial Setup
     func setupUI() {
         navigationItem.rightBarButtonItem = cancelButton
         setupTableView()
@@ -62,7 +59,7 @@ final class FriendListViewController: UIViewController, ViewType {
     // MARK: - Binding
     func bind() {
         
-        // Input -> ViewModel
+        // MARK: - Input
         refresh.rx.controlEvent(.valueChanged)
             .bind(to: viewModel.refreshPulled)
             .disposed(by: disposeBag)
@@ -77,7 +74,7 @@ final class FriendListViewController: UIViewController, ViewType {
             .disposed(by: disposeBag)
         
         
-        // ViewModel -> Output
+        // MARK: - Output
         viewModel.users
             .bind(to: tableView.rx.items(cellIdentifier: UserCell.reuseIdentifier, cellType: UserCell.self)) { row, user, cell in
                 cell.user = user
@@ -88,7 +85,7 @@ final class FriendListViewController: UIViewController, ViewType {
             .drive(refresh.rx.spinner)
             .disposed(by: disposeBag)
         
-        // UI Bind
+        // MARK: -  UI Binding
         cancelButton.rx.tap
             .subscribe(onNext: { [unowned self] in
                 self.dismiss(animated: true)

@@ -9,13 +9,14 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-struct ChatViewModel: ChatViewModelBindable {
-    // Input
+struct ChatViewModel: ChatViewModelModeling {
+   
+    // MARK: - Input
     let userData = BehaviorRelay<User?>(value: nil)
     let inputText = BehaviorRelay<String>(value: "")
     let sendButtonTapped = PublishSubject<Void>()
     
-    // Output
+    // MARK: - Output
     let isMessageUploaded: Driver<Bool>
     let messages = BehaviorRelay<[Message]>(value: [])
     

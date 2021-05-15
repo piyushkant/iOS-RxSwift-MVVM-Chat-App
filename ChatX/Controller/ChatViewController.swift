@@ -9,21 +9,18 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-final class ChatViewController: UIViewController, ViewType {
+final class ChatViewController: UIViewController, BaseViewProtocol {
     
-    // MARK: - Properties
     private var collectionView: UICollectionView!
     private var layout: UICollectionViewFlowLayout!
     
     private let customInputView = CustomInputView()
-    var viewModel: ChatViewModelBindable!
+    var viewModel: ChatViewModelModeling!
     var disposeBag: DisposeBag!
     
     private let tapGesture = UITapGestureRecognizer()
     private let coverView = UIView()
     
-    
-    // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -44,7 +41,6 @@ final class ChatViewController: UIViewController, ViewType {
         coverView.removeFromSuperview()
     }
     
-    // MARK: - Initial UI Setup
     func setupUI() {
         setupCollectionView()
         setupCustomInputView()
@@ -90,7 +86,7 @@ final class ChatViewController: UIViewController, ViewType {
     // MARK: - Binding
     func bind() {
         
-        // Input -> ViewModel
+        // MARK: - ViewModel
         customInputView.sendButton.rx.tap
             .bind(to: viewModel.sendButtonTapped)
             .disposed(by: disposeBag)
@@ -101,7 +97,7 @@ final class ChatViewController: UIViewController, ViewType {
             .disposed(by: disposeBag)
         
         
-        // ViewModel -> Output
+        // MARK: - Output
         viewModel.userData
             .subscribe(onNext: { [weak self] in
                 guard let user = $0 else { return }
@@ -130,7 +126,7 @@ final class ChatViewController: UIViewController, ViewType {
             .disposed(by: disposeBag)
         
         
-        // UI Binding
+        // MARK: - UI Binding
         tapGesture.rx.event
             .subscribe(onNext: { [unowned self] _ in
                 self.view.endEditing(true)
@@ -138,7 +134,7 @@ final class ChatViewController: UIViewController, ViewType {
             .disposed(by: disposeBag)
         
         
-        // Notification Binding
+        // MARK: - Notification Binding
         NotificationCenter.default.rx.notification(Notification.Name("didFinishUploadMessage"))
             .subscribe(onNext:{ [weak self] (noti) in
                 guard let self = self else { return }
