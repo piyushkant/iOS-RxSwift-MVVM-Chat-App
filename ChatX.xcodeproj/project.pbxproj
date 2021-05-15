@@ -93,6 +93,7 @@
 		4B1C84AC264F75610097B3FB /* Push-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Push-Info.plist"; sourceTree = "<group>"; };
 		4B1C84AE264F764F0097B3FB /* PropertyUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyUtils.swift; sourceTree = "<group>"; };
 		4B1C84B0264F7DB00097B3FB /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
+		4B1C84B3264F7F590097B3FB /* ChatX.fig */ = {isa = PBXFileReference; lastKnownFileType = file; path = ChatX.fig; sourceTree = "<group>"; };
 		4B7645F9264A850E00290E2E /* UserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		4B764604264BC97900290E2E /* LoginViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModelTest.swift; sourceTree = "<group>"; };
 		4B764608264C136500290E2E /* FriendListViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListViewModelTest.swift; sourceTree = "<group>"; };
@@ -194,9 +195,18 @@
 			path = Properties;
 			sourceTree = "<group>";
 		};
+		4B1C84B2264F7F260097B3FB /* Figma Wireframe */ = {
+			isa = PBXGroup;
+			children = (
+				4B1C84B3264F7F590097B3FB /* ChatX.fig */,
+			);
+			path = "Figma Wireframe";
+			sourceTree = "<group>";
+		};
 		4BFD0976263FB004004D43E2 = {
 			isa = PBXGroup;
 			children = (
+				4B1C84B2264F7F260097B3FB /* Figma Wireframe */,
 				4BFD0981263FB004004D43E2 /* ChatX */,
 				4BFD0998263FB005004D43E2 /* ChatXTests */,
 				4BFD0980263FB004004D43E2 /* Products */,
