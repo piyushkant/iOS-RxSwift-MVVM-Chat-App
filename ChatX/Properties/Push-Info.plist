@@ -3,6 +3,6 @@
 <plist version="1.0">
 <dict>
 	<key>gcm_server_key</key>
-	<string>AAAAXANZbDU:APA91bE4hpvq156kQNOQmHClGfG_sp2qH0q47v8KZ8EOwwyfxWQgXOvwtGHqkkod03urxaSU_LnhyZsGvE8CeGUklrkTrctHsD2dcaE9cFA4fBbunkiMZQWdoQcYYFsqKAla2P1fbxuK</string>
+	<string>gcm_server_key</string>
 </dict>
 </plist>
